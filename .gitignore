@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# Tools
+.mypy_cache/
+.ruff_cache/
+.vscode/
+.idea/
+.DS_Store
+
+# Data & Storage
+data/chroma_storage/
+data/qdrant_storage/
+data/redis_data/
+data/raw/
+data/processed/
+*.sqlite3
+*.rdb
+*.bin
+*.pickle
+
+# Documentation generation
+docs/diagrams/bin/
