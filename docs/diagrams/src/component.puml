@@ -1,0 +1,55 @@
+@startuml component
+!pragma layout smetana
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include ../p3-c4-styles.puml
+
+title Component Diagram for RAG Engine (ADR-002)
+
+' === Tags ===
+AddElementTag("Core", $borderColor=C_EMERALD400, $fontColor=C_TEXT)
+AddRelTag("MainFlow", $lineColor=C_EMERALD400, $textColor=C_MUTED)
+
+Container_Boundary(rag_boundary, "RAG Engine Service") {
+    Component(router, "Adaptive Router", "Heuristics", "Determines if RAG is needed or direct LLM")
+    Component(expander, "Query Expansion", "Gemini API", "Generates variations (3x) for broader coverage", $tags="Core")
+    
+    Container_Boundary(retrieval_strat, "Hybrid Retrieval Strategy") {
+         Component(dense_retriever, "Dense Retriever", "ChromaDB", "Semantic similarity search", $tags="Core")
+         Component(colbert_retriever, "ColBERT Retriever", "mxbai-colbert-large", "Late interaction fine-grained search", $tags="Core")
+         Component(rrf_fusion, "RRF Fusion", "Algorithm", "Combines and ranks Dense + ColBERT results")
+    }
+
+    Component(reranker, "Cross-Encoder Reranker", "mxbai-rerank-large", "Re-scores candidates for precision")
+    Component(generator, "LLM Generator", "Gemini 3 Flash", "Generates final answer with context")
+    Component(security, "Security Guard", "Regex/Canary", "Sanitizes input, masks PII, checks injection")
+}
+
+Container_Boundary(storage, "Storage Layer") {
+    ComponentDb(chroma, "ChromaDB", "Vector Store", "Stores embeddings + metadata", $tags="Core")
+    ComponentDb(colbert_idx, "ColBERT Index", "File System", "PLAID Index artifacts")
+    ComponentDb(cache, "Semantic Cache", "Redis", "Caches popular queries")
+}
+
+' === Main Flow ===
+Rel(router, expander, "Required (RAG)", $tags="MainFlow")
+Rel(router, generator, "Direct Answer", "No RAG")
+
+Rel(expander, dense_retriever, "Queries", $tags="MainFlow")
+Rel(expander, colbert_retriever, "Queries", $tags="MainFlow")
+
+Rel(dense_retriever, rrf_fusion, "Ranked Results", $tags="MainFlow")
+Rel(colbert_retriever, rrf_fusion, "Ranked Results", $tags="MainFlow")
+
+Rel(rrf_fusion, reranker, "Top Candidates", $tags="MainFlow")
+Rel(reranker, generator, "Top-5 Context", $tags="MainFlow")
+
+' === Data Access ===
+Rel(dense_retriever, chroma, "Query Vectors", "Internal API")
+Rel(colbert_retriever, colbert_idx, "Read Index", "File I/O")
+
+' === Supporting ===
+Rel(security, router, "Sanitized Query")
+Rel(generator, security, "Validate Output")
+Rel(router, cache, "Check Cache")
+
+@enduml

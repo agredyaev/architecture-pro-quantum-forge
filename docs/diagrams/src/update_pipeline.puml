@@ -1,0 +1,57 @@
+@startuml update_pipeline
+!pragma layout smetana
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+!include ../p3-c4-styles.puml
+
+title Knowledge Base Update Pipeline
+
+' === Tags ===
+AddElementTag("Core", $borderColor=C_EMERALD400, $fontColor=C_TEXT)
+AddRelTag("MainFlow", $lineColor=C_EMERALD400, $textColor=C_MUTED)
+
+System_Boundary(scheduler, "Scheduler Layer") {
+    Component(cron, "Cron / Launchd", "System Daemon", "Triggers update script daily at 06:00")
+}
+
+System_Boundary(source, "Content Source") {
+    Component(files, "Markdown Files", "knowledge_base/*.md", "Source documentation")
+}
+
+System_Boundary(pipeline, "Update Pipeline (Python)") {
+    Component(scanner, "File Scanner", "update_index.py", "Scans directory for changes")
+    Component(hasher, "Hash Calculator", "MD5", "Computes content hash to detect modifications")
+    
+    Component(detector, "Change Detector", "Logic", "Identifies New/Modified/Deleted files", $tags="Core")
+    
+    Component(chunker, "Chunker", "LangChain/Custom", "Semantic splitting of documents")
+    Component(embedder, "Embedder", "SentenceTransformers", "Generates dense vectors")
+}
+
+System_Boundary(vectordb, "Vector Storage") {
+    ComponentDb(chroma, "ChromaDB", "Local Persistence", "Stores vectors + metadata", $tags="Core")
+    Component(metadata, "Index Metadata", "Internal", "Tracks indexed files and hashes")
+}
+
+System_Boundary(logging_area, "Observability") {
+    Component(logfile, "Update Log", "update_index.log", "Structured JSON logs of execution")
+}
+
+' === Process Flow ===
+Rel(cron, scanner, "Triggers", "Daily")
+Rel(files, scanner, "Reads", "File I/O")
+
+Rel(scanner, hasher, "Passes content")
+Rel(hasher, detector, "Passes hashes")
+Rel(metadata, detector, "Compares against index")
+
+Rel(detector, chunker, "Process Modified", "List[Path]", $tags="MainFlow")
+Rel(detector, chroma, "Remove Deleted", "DeleteBySource")
+
+Rel(chunker, embedder, "Text Chunks", "List[str]")
+Rel(embedder, chroma, "Upsert Vectors", "Embeddings", $tags="MainFlow")
+
+Rel(scanner, logfile, "Logs status")
+Rel(detector, logfile, "Logs stats")
+Rel(embedder, logfile, "Logs results")
+
+@enduml

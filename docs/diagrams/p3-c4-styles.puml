@@ -1,0 +1,431 @@
+' ============================================================================
+' P3 Dark Theme for C4-PlantUML
+' ============================================================================
+!$ROUNDED_BOX_SIZE = 12
+!$EIGHT_SIDED_SIZE = 0
+
+' ============================================================================
+' Цветовая палитра P3
+' ============================================================================
+!define C_BG        #020617
+!define C_SURF      #0f172a
+!define C_CARD      #1e293b
+!define C_TEXT      #f1f5f9
+!define C_MUTED     #94a3b8
+!define C_SUBTEXT   #64748b
+!define C_LINE      #334155
+!define C_PRI       #818cf8
+!define C_PRI600    #6366f1
+!define C_PRI700    #4f46e5
+!define C_VIO500    #8b5cf6
+!define C_VIO600    #7c3aed
+!define C_VIO300    #c4b5fd
+!define C_DARKTXT   #0f172a
+!define C_RED500    #ef4444
+!define C_ORANGE400 #fb923c
+!define C_ORANGE300 #fdba74
+!define C_AMBER400  #fbbf24
+!define C_AMBER300  #fcd34d
+!define C_AMBER950  #451a03
+!define C_EMERALD400 #34d399
+!define C_CYAN400   #22d3ee
+!define C_SKY400    #38bdf8
+!define C_TEAL400   #2dd4bf
+!define C_TEAL300   #5eead4
+!define C_ROSE400   #fb7185
+!define C_PINK400   #f472b6
+!define C_CYAN600   #0891b2
+!define C_EMERALD   #10b981
+!define C_ROSE500   #f43f5e
+!define C_ORANGE500 #f97316
+!define C_BLUE500    #3b82f6
+
+' ============================================================================
+' C4-PlantUML: Переменные элементов
+' ============================================================================
+!$ELEMENT_FONT_COLOR = C_TEXT
+!$STEREOTYPE_FONT_SIZE = 11
+!$TECHN_FONT_SIZE = 12
+
+' ============================================================================
+' C4-PlantUML: Стрелки
+' ============================================================================
+!$ARROW_COLOR = C_PRI600
+!$ARROW_FONT_COLOR = C_MUTED
+!$ARROW_FONT_SIZE = 12
+
+' ============================================================================
+' C4-PlantUML: Границы
+' ============================================================================
+!$BOUNDARY_COLOR = C_LINE
+!$BOUNDARY_BG_COLOR = "transparent"
+!$BOUNDARY_BORDER_STYLE = "dashed"
+
+' ============================================================================
+' C4-PlantUML: Person
+' ============================================================================
+!$PERSON_FONT_COLOR = C_SURF
+!$PERSON_BG_COLOR = C_VIO300
+!$PERSON_BORDER_COLOR = C_VIO600
+!$EXTERNAL_PERSON_FONT_COLOR = C_SURF
+!$EXTERNAL_PERSON_BG_COLOR = C_VIO500
+!$EXTERNAL_PERSON_BORDER_COLOR = C_VIO600
+
+' ============================================================================
+' C4-PlantUML: System
+' ============================================================================
+!$SYSTEM_FONT_COLOR = C_TEXT
+!$SYSTEM_BG_COLOR = C_CARD
+!$SYSTEM_BORDER_COLOR = C_PRI600
+!$EXTERNAL_SYSTEM_FONT_COLOR = C_TEXT
+!$EXTERNAL_SYSTEM_BG_COLOR = C_CARD
+!$EXTERNAL_SYSTEM_BORDER_COLOR = C_VIO600
+
+' ============================================================================
+' C4-PlantUML: Container
+' ============================================================================
+!$CONTAINER_FONT_COLOR = C_TEXT
+!$CONTAINER_BG_COLOR = C_CARD
+!$CONTAINER_BORDER_COLOR = C_LINE
+!$EXTERNAL_CONTAINER_FONT_COLOR = C_TEXT
+!$EXTERNAL_CONTAINER_BG_COLOR = C_CARD
+!$EXTERNAL_CONTAINER_BORDER_COLOR = C_VIO600
+
+' ============================================================================
+' C4-PlantUML: Component
+' ============================================================================
+!$COMPONENT_FONT_COLOR = C_TEXT
+!$COMPONENT_BG_COLOR = C_CARD
+!$COMPONENT_BORDER_COLOR = C_LINE
+!$EXTERNAL_COMPONENT_FONT_COLOR = C_TEXT
+!$EXTERNAL_COMPONENT_BG_COLOR = C_CARD
+!$EXTERNAL_COMPONENT_BORDER_COLOR = C_VIO600
+
+' ============================================================================
+' C4-PlantUML: Database
+' ============================================================================
+!$SYSTEM_DB_FONT_COLOR = C_TEXT
+!$SYSTEM_DB_BG_COLOR = C_SURF
+!$SYSTEM_DB_BORDER_COLOR = C_PRI600
+!$CONTAINER_DB_FONT_COLOR = C_TEXT
+!$CONTAINER_DB_BG_COLOR = C_SURF
+!$CONTAINER_DB_BORDER_COLOR = C_PRI600
+!$COMPONENT_DB_FONT_COLOR = C_TEXT
+!$COMPONENT_DB_BG_COLOR = C_SURF
+!$COMPONENT_DB_BORDER_COLOR = C_PRI600
+
+' ============================================================================
+' C4-PlantUML: Queue
+' ============================================================================
+!$SYSTEM_QUEUE_FONT_COLOR = C_TEXT
+!$SYSTEM_QUEUE_BG_COLOR = C_SURF
+!$SYSTEM_QUEUE_BORDER_COLOR = C_VIO500
+!$CONTAINER_QUEUE_FONT_COLOR = C_TEXT
+!$CONTAINER_QUEUE_BG_COLOR = C_SURF
+!$CONTAINER_QUEUE_BORDER_COLOR = C_VIO500
+!$COMPONENT_QUEUE_FONT_COLOR = C_TEXT
+!$COMPONENT_QUEUE_BG_COLOR = C_SURF
+!$COMPONENT_QUEUE_BORDER_COLOR = C_VIO500
+
+' ============================================================================
+' C4-PlantUML: External Database
+' ============================================================================
+!$EXTERNAL_SYSTEM_DB_FONT_COLOR = C_TEXT
+!$EXTERNAL_SYSTEM_DB_BG_COLOR = C_SURF
+!$EXTERNAL_SYSTEM_DB_BORDER_COLOR = C_VIO600
+!$EXTERNAL_CONTAINER_DB_FONT_COLOR = C_TEXT
+!$EXTERNAL_CONTAINER_DB_BG_COLOR = C_SURF
+!$EXTERNAL_CONTAINER_DB_BORDER_COLOR = C_VIO600
+!$EXTERNAL_COMPONENT_DB_FONT_COLOR = C_TEXT
+!$EXTERNAL_COMPONENT_DB_BG_COLOR = C_SURF
+!$EXTERNAL_COMPONENT_DB_BORDER_COLOR = C_VIO600
+
+' ============================================================================
+' C4-PlantUML: External Queue
+' ============================================================================
+!$EXTERNAL_SYSTEM_QUEUE_FONT_COLOR = C_TEXT
+!$EXTERNAL_SYSTEM_QUEUE_BG_COLOR = C_SURF
+!$EXTERNAL_SYSTEM_QUEUE_BORDER_COLOR = C_VIO600
+!$EXTERNAL_CONTAINER_QUEUE_FONT_COLOR = C_TEXT
+!$EXTERNAL_CONTAINER_QUEUE_BG_COLOR = C_SURF
+!$EXTERNAL_CONTAINER_QUEUE_BORDER_COLOR = C_VIO600
+!$EXTERNAL_COMPONENT_QUEUE_FONT_COLOR = C_TEXT
+!$EXTERNAL_COMPONENT_QUEUE_BG_COLOR = C_SURF
+!$EXTERNAL_COMPONENT_QUEUE_BORDER_COLOR = C_VIO600
+
+' ============================================================================
+' C4-PlantUML: Node
+' ============================================================================
+!$NODE_FONT_COLOR = C_TEXT
+!$NODE_BG_COLOR = C_CARD
+!$NODE_BORDER_COLOR = C_LINE
+
+' ============================================================================
+' C4-PlantUML: Legend
+' ============================================================================
+!$LEGEND_TITLE_COLOR = C_TEXT
+!$LEGEND_FONT_COLOR = C_TEXT
+!$LEGEND_BG_COLOR = C_CARD
+!$LEGEND_BORDER_COLOR = C_LINE
+
+' ============================================================================
+' CSS Styles: Детальная настройка
+' ============================================================================
+<style>
+  root {
+    BackgroundColor C_BG
+    Shadowing 0
+  }
+
+  element {
+    FontColor C_TEXT
+    FontSize 14
+    BackgroundColor C_CARD
+    LineColor C_LINE
+    LineThickness 2
+    RoundCorner 12
+    Shadowing 0
+    Padding 14
+  }
+
+  stereotype {
+    FontSize 11
+    FontColor C_SUBTEXT
+    FontStyle italic
+  }
+
+  ' Person
+  .Person, .person {
+    BackgroundColor C_VIO300
+    LineColor C_VIO600
+    LineThickness 2
+    FontColor C_SURF
+    FontSize 14
+    RoundCorner 12
+  }
+
+  .PersonExt, .external_person {
+    BackgroundColor C_VIO500
+    LineColor C_VIO600
+    LineThickness 2
+    LineStyle 5
+    FontColor C_SURF
+  }
+
+  ' System
+  .System, .system {
+    BackgroundColor C_CARD
+    LineColor C_PRI600
+    LineThickness 2
+    FontColor C_TEXT
+    RoundCorner 12
+  }
+
+  .SystemExt, .external_system {
+    BackgroundColor C_CARD
+    LineColor C_VIO600
+    LineThickness 2
+    LineStyle 5
+    FontColor C_TEXT
+  }
+
+  .SystemDb, .system_db {
+    BackgroundColor C_SURF
+    LineColor C_PRI600
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  .SystemDbExt, .external_system_db {
+    BackgroundColor C_SURF
+    LineColor C_VIO600
+    LineThickness 2
+    LineStyle 5
+    FontColor C_TEXT
+  }
+
+  .SystemQueue, .system_queue {
+    BackgroundColor C_SURF
+    LineColor C_VIO500
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  ' Container
+  .Container, .container {
+    BackgroundColor C_CARD
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_TEXT
+    RoundCorner 12
+  }
+
+  .ContainerExt, .external_container {
+    BackgroundColor C_CARD
+    LineColor C_VIO600
+    LineThickness 2
+    LineStyle 5
+    FontColor C_TEXT
+  }
+
+  .ContainerDb, .container_db {
+    BackgroundColor C_SURF
+    LineColor C_PRI600
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  .ContainerDbExt, .external_container_db {
+    BackgroundColor C_SURF
+    LineColor C_VIO600
+    LineThickness 2
+    LineStyle 5
+    FontColor C_TEXT
+  }
+
+  .ContainerQueue, .container_queue {
+    BackgroundColor C_SURF
+    LineColor C_VIO500
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  ' Component
+  .Component, .component {
+    BackgroundColor C_CARD
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_TEXT
+    RoundCorner 12
+  }
+
+  .ComponentExt, .external_component {
+    BackgroundColor C_CARD
+    LineColor C_VIO600
+    LineThickness 2
+    LineStyle 5
+    FontColor C_TEXT
+  }
+
+  .ComponentDb, .component_db {
+    BackgroundColor C_SURF
+    LineColor C_PRI600
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  .ComponentQueue, .component_queue {
+    BackgroundColor C_SURF
+    LineColor C_VIO500
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  ' Boundaries
+  .Boundary, .boundary {
+    BackgroundColor transparent
+    LineColor C_LINE
+    LineThickness 2
+    LineStyle 5
+    FontColor C_TEXT
+    Padding 18
+  }
+
+  .System_Boundary, .system_boundary {
+    BackgroundColor C_SURF
+    LineColor C_PRI600
+    LineThickness 2
+    LineStyle 5
+    FontColor C_PRI
+    Padding 18
+  }
+
+  .ContainerBoundary, .container_boundary {
+    BackgroundColor C_SURF
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_MUTED
+    Padding 16
+  }
+
+  .EnterpriseBoundary, .enterprise {
+    BackgroundColor C_SURF
+    LineColor C_PRI600
+    LineThickness 2
+    FontColor C_PRI
+    FontSize 16
+    Padding 22
+  }
+
+  ' Relationships
+  relationship {
+    LineColor C_PRI600
+    LineThickness 2
+    FontColor C_MUTED
+    FontSize 12
+  }
+
+  ' Database
+  database {
+    BackgroundColor C_SURF
+    LineColor C_PRI600
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  ' Queue
+  queue {
+    BackgroundColor C_SURF
+    LineColor C_VIO500
+    LineThickness 2
+    FontColor C_TEXT
+  }
+
+  ' Legend
+  legend {
+    BackgroundColor C_CARD
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_TEXT
+    RoundCorner 12
+    Padding 12
+  }
+
+  ' Rectangle
+  rectangle {
+    BackgroundColor C_CARD
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_TEXT
+    RoundCorner 12
+  }
+
+  ' Node
+  node {
+    BackgroundColor C_CARD
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_TEXT
+    RoundCorner 12
+  }
+
+  ' Package
+  package {
+    BackgroundColor C_SURF
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_TEXT
+    RoundCorner 12
+    Padding 18
+  }
+
+  ' Note
+  note {
+    BackgroundColor C_CARD
+    LineColor C_LINE
+    LineThickness 2
+    FontColor C_MUTED
+    RoundCorner 12
+    Padding 10
+  }
+</style>

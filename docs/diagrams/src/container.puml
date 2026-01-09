@@ -1,0 +1,36 @@
+@startuml container
+!pragma layout smetana
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include ../p3-c4-styles.puml
+
+title Container Diagram for QuantumForge RAG Bot
+
+' === Tags ===
+AddElementTag("Core", $borderColor=C_EMERALD400, $fontColor=C_TEXT)
+AddRelTag("MainFlow", $lineColor=C_EMERALD400, $textColor=C_MUTED)
+
+Person(user, "Employee", "Uses the bot via Telegram")
+
+System_Ext(tg_platform, "Telegram API", "EXTERNAL", "Handles message delivery")
+System_Ext(google_api, "Google Gemini 3 Flash", "EXTERNAL", "LLM Provider")
+
+System_Boundary(bot_boundary, "RAG Bot Host (Single Process / Docker)") {
+    Container(tg_bot, "Telegram Bot Service", "Python, Aiogram", "Handles user interaction, sessions, and input validation.")
+    Container(rag_engine, "RAG Engine", "Python, Custom Service", "Orchestrates retrieval, embedding, prompting, and ingestion.", $tags="Core")
+    
+    ContainerDb(chroma, "ChromaDB", "Embedded SQLite", "Stores document embeddings and metadata.", $tags="Core")
+    ContainerDb(redis, "Redis Cache", "Docker Service", "Stores user sessions (FSM) and semantic cache.")
+}
+
+' === Relationships ===
+Rel(user, tg_platform, "Chats with", "HTTPS")
+Rel(tg_platform, tg_bot, "Delivers updates", "Webhook/LongPoll")
+
+Rel(tg_bot, rag_engine, "Requests answer", "Internal Call", $tags="MainFlow")
+Rel(tg_bot, redis, "Read/Write Session", "TCP:6379")
+
+Rel(rag_engine, chroma, "Vector Search", "Local API", $tags="MainFlow")
+Rel(rag_engine, google_api, "Generate Answer", "HTTPS", $tags="MainFlow")
+Rel(rag_engine, redis, "Check Semantic Cache", "TCP:6379")
+
+@enduml

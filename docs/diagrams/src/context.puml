@@ -1,0 +1,26 @@
+@startuml context
+!pragma layout smetana
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include ../p3-c4-styles.puml
+
+title System Context Diagram for QuantumForge RAG Bot
+
+' === Tags ===
+AddElementTag("Core", $borderColor=C_EMERALD400, $fontColor=C_TEXT)
+AddRelTag("MainFlow", $lineColor=C_EMERALD400, $textColor=C_MUTED)
+
+Person(user, "Employee", "Developer or Support Engineer looking for internal docs.")
+
+System(bot_system, "QuantumForge RAG Bot", "Telegram bot that answers questions based on internal knowledge base.", $tags="Core")
+
+System_Ext(tg_system, "Telegram Platform", "Messenger interface for users.")
+System_Ext(llm_api, "Google Gemini API", "LLM for reasoning, query expansion, and generation.")
+System_Ext(confluence, "Knowledge Base", "Source of truth for documentation (Markdown/Wiki).")
+
+' === Relationships ===
+Rel(user, tg_system, "Sends commands/questions", "HTTPS")
+Rel(tg_system, bot_system, "Webhooks / Long Polling", "JSON/HTTPS", $tags="MainFlow")
+Rel(bot_system, llm_api, "Generates answers", "HTTPS", $tags="MainFlow")
+Rel(bot_system, confluence, "Ingests content", "ETL Pipeline")
+
+@enduml

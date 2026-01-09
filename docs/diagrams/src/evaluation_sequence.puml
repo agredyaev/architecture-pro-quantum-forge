@@ -1,0 +1,181 @@
+@startuml evaluation_sequence
+!pragma layout smetana
+
+' ============================================================================
+' P3 Dark Theme Colors (from p3-c4-styles.puml)
+' ============================================================================
+!define C_BG        #020617
+!define C_SURF      #0f172a
+!define C_CARD      #1e293b
+!define C_TEXT      #f1f5f9
+!define C_MUTED     #94a3b8
+!define C_SUBTEXT   #64748b
+!define C_LINE      #334155
+!define C_PRI       #818cf8
+!define C_PRI600    #6366f1
+!define C_EMERALD400 #34d399
+!define C_VIO500    #8b5cf6
+
+' ============================================================================
+' Global Skinparam
+' ============================================================================
+skinparam backgroundColor C_BG
+skinparam defaultFontColor C_TEXT
+skinparam defaultFontSize 13
+skinparam shadowing false
+skinparam roundCorner 12
+
+' ============================================================================
+' Sequence Diagram Specific
+' ============================================================================
+skinparam sequence {
+    ArrowColor C_PRI600
+    ArrowFontColor C_MUTED
+    ArrowFontSize 11
+    
+    LifeLineBorderColor C_LINE
+    LifeLineBackgroundColor C_SURF
+    
+    ParticipantBorderColor C_PRI600
+    ParticipantBackgroundColor C_CARD
+    ParticipantFontColor C_TEXT
+    ParticipantFontSize 13
+    
+    ActorBorderColor C_VIO500
+    ActorBackgroundColor C_VIO500
+    ActorFontColor C_TEXT
+    
+    BoxBorderColor C_LINE
+    BoxBackgroundColor C_SURF
+    BoxFontColor C_TEXT
+    
+    DividerBorderColor C_LINE
+    DividerBackgroundColor C_SURF
+    DividerFontColor C_TEXT
+    
+    GroupBorderColor C_LINE
+    GroupBackgroundColor C_SURF
+    GroupHeaderFontColor C_MUTED
+    GroupFontColor C_MUTED
+    
+    ReferenceBackgroundColor C_CARD
+    ReferenceBorderColor C_LINE
+    ReferenceFontColor C_TEXT
+    ReferenceHeaderBackgroundColor C_SURF
+}
+
+skinparam stereotype {
+    CBackgroundColor C_SURF
+    CBorderColor C_LINE
+    ABackgroundColor C_VIO500
+    ABorderColor C_VIO500
+}
+
+skinparam title {
+    FontColor C_TEXT
+    FontSize 16
+    BackgroundColor C_SURF
+    BorderColor C_LINE
+}
+
+skinparam note {
+    BackgroundColor C_CARD
+    BorderColor C_LINE
+    FontColor C_MUTED
+}
+
+' ============================================================================
+' Title
+' ============================================================================
+title Evaluation Flow Sequence Diagram (Task 7)
+
+' ============================================================================
+' Participants
+' ============================================================================
+participant "Evaluate Script" as Eval <<Script>>
+participant "RAG Service" as RAG <<Service>>
+participant "Vector DB" as VDB <<Database>>
+participant "Reranker" as RR <<Service>>
+participant "LLM" as LLM <<Service>>
+participant "Evaluation Logger" as Log <<Logger>>
+participant "Report Generator" as Report <<Service>>
+
+' ============================================================================
+' Initialization
+' ============================================================================
+== Initialization ==
+Eval -> Eval: Load golden_questions.json
+Eval -> Log: Clear previous logs
+
+' ============================================================================
+' Evaluation Loop
+' ============================================================================
+== Evaluation Loop ==
+loop For each Golden Question
+    Eval -> RAG: generate(query)
+    activate RAG
+    
+    RAG -> VDB: Query embeddings
+    activate VDB
+    VDB --> RAG: Retrieved chunks
+    deactivate VDB
+    
+    alt No chunks found
+        RAG --> Eval: NoContextResponse
+        Eval -> Log: Log "no_context"
+    else Chunks found
+        RAG -> RR: Rerank candidates
+        activate RR
+        RR --> RAG: Top-k chunks
+        deactivate RR
+        
+        RAG -> LLM: Generate with context
+        activate LLM
+        
+        alt LLM Error
+            LLM --> RAG: Error
+            RAG --> Eval: ErrorResponse
+            Eval -> Log: Log "error"
+        else Success
+            LLM --> RAG: Generated answer
+            deactivate LLM
+            RAG --> Eval: RAGResponse
+            Eval -> Log: Log success
+        end
+    end
+    deactivate RAG
+end
+
+' ============================================================================
+' Metrics Calculation
+' ============================================================================
+== Metrics Calculation ==
+Eval -> Report: Calculate metrics
+activate Report
+Report -> Report: Answer Rate
+Report -> Report: Rejection Rate
+Report -> Report: Source Accuracy
+Report -> Report: Coverage Score
+Report --> Eval: EvaluationMetrics
+deactivate Report
+
+' ============================================================================
+' Gap Analysis
+' ============================================================================
+== Gap Analysis ==
+Eval -> Report: Identify gaps
+activate Report
+Report -> Report: Find missing coverage
+Report -> Report: Detect hallucinations
+Report --> Eval: Gaps list
+deactivate Report
+
+' ============================================================================
+' Report Generation
+' ============================================================================
+== Report Generation ==
+Eval -> Report: Generate recommendations
+Report -> Log: Save evaluation_report.json
+Eval -> Eval: Print summary to console
+
+@enduml
