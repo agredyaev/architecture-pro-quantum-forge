@@ -158,22 +158,30 @@ def evaluate_faithfulness_llm(
     question: str,
     answer: str,
     context: str,
-    model_name: str = "gemini-2.0-flash",
-) -> tuple[float, bool]:
+    model_name: str | None = None,
+) -> tuple[float, bool, str]:
     """Evaluate faithfulness using LLM-as-Judge.
 
     Returns:
-        tuple: (faithfulness_score 0-1, is_hallucination bool)
+        tuple: (faithfulness_score 0-1, is_hallucination bool, reason str)
     """
-    import google.generativeai as genai
+    from google import genai
 
     from src.core import settings
 
     if not context or not answer:
-        return 0.0, False
+        return 0.0, False, ""
 
-    genai.configure(api_key=settings.models.gemini_api_key)
-    model = genai.GenerativeModel(model_name)
+    if model_name is None:
+        model_name = settings.evaluation.judge_model
+
+    client = genai.Client(api_key=settings.models.gemini_api_key)
+
+    context_limit = settings.evaluation.judge_context_chars
+    if context_limit > 0:
+        judge_context = context[:context_limit]
+    else:
+        judge_context = context
 
     prompt = f"""You are an expert evaluator for RAG systems.
 
@@ -182,7 +190,7 @@ Evaluate the FAITHFULNESS of the Answer based ONLY on the provided Context.
 Question: {question}
 
 Context:
-{context[:2000]}
+{judge_context}
 
 Answer: {answer}
 
@@ -197,30 +205,31 @@ Instructions:
 Respond ONLY with JSON:
 {{"faithfulness": 0.X, "is_hallucination": true/false, "reason": "brief reason"}}"""
 
-    try:
-        response = model.generate_content(prompt)
-        text = response.text.strip()
+    import json
+    import re
 
-        import json
-        import re
+    try:
+        response = client.models.generate_content(model=model_name, contents=prompt)
+        text = response.text.strip()
 
         json_match = re.search(r"\{[^}]+\}", text)
         if json_match:
             data = json.loads(json_match.group())
             faithfulness = float(data.get("faithfulness", 0.0))
             is_hallucination = bool(data.get("is_hallucination", False))
-            return faithfulness, is_hallucination
+            reason = str(data.get("reason", "")).strip()
+            return faithfulness, is_hallucination, reason
     except (ValueError, KeyError, json.JSONDecodeError) as e:
         logger.warning("Faithfulness evaluation failed: %s", e)
 
-    return 0.0, False
+    return 0.0, False, ""
 
 
 def evaluate_relevance_llm(
     question: str,
     answer: str,
     should_answer: bool = True,
-    model_name: str = "gemini-2.0-flash",
+    model_name: str | None = None,
 ) -> float:
     """Evaluate answer relevance using LLM-as-Judge.
 
@@ -236,15 +245,17 @@ def evaluate_relevance_llm(
     """
     import re
 
-    import google.generativeai as genai
+    from google import genai
 
     from src.core import settings
 
     if not answer:
         return 0.0
 
-    genai.configure(api_key=settings.models.gemini_api_key)
-    model = genai.GenerativeModel(model_name)
+    if model_name is None:
+        model_name = settings.evaluation.judge_model
+
+    client = genai.Client(api_key=settings.models.gemini_api_key)
 
     expectation_instr = (
         "The system IS EXPECTED to answer this question."
@@ -277,7 +288,7 @@ Respond ONLY with JSON:
 {{"relevance": 0.X, "reason": "brief reason"}}"""
 
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(model=model_name, contents=prompt)
         text = response.text.strip()
         json_match = re.search(r"\{[^}]+\}", text)
         if json_match:
@@ -297,4 +308,3 @@ def calculate_hallucination_rate(results: list[EvaluationResult]) -> float:
 
     hallucinations = sum(1 for r in answered if r.is_hallucination)
     return hallucinations / len(answered)
-

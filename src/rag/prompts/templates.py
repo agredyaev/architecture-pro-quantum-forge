@@ -37,7 +37,13 @@ def get_user_template() -> str:
 def build_system_prompt(context: str) -> str:
     """Build the system prompt with context."""
     template = get_system_prompt()
-    return template.format(context=context)
+    extra_instructions = ""
+    if settings.rag.strict_attribution:
+        extra_instructions = settings.rag.strict_attribution_instruction
+    return template.format(
+        context=context,
+        extra_instructions=extra_instructions,
+    )
 
 
 def build_user_prompt(

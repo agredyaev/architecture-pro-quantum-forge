@@ -54,10 +54,16 @@ class EvaluationResult(BaseModel):
         default=False, description="Whether sources match expectations"
     )
     response_preview: str = Field(default="")
+    response_full: str = Field(
+        default="", description="Full response when logging enabled"
+    )
     response_type: ResponseType = ResponseType.NORMAL
     latency_ms: float = Field(default=0.0, description="Response latency in ms")
     faithfulness_score: float = Field(
         default=0.0, description="LLM-judged faithfulness (0-1)"
+    )
+    faithfulness_reason: str = Field(
+        default="", description="LLM-judged faithfulness reason"
     )
     relevance_score: float = Field(
         default=0.0, description="LLM-judged relevance (0-1)"
@@ -140,6 +146,7 @@ class RAGResponse(BaseModel):
     rerank_scores: list[float] | None = Field(
         default=None, description="Reranker scores"
     )
+    context: str | None = Field(default=None, description="Retrieved context used for generation")
 
 
 class GreetingResponse(RAGResponse):
@@ -169,4 +176,3 @@ class ErrorResponse(RAGResponse):
     blocked: bool = False
     sources: list[str] = []
     error_type: str | None = Field(default=None, description="Exception class name")
-

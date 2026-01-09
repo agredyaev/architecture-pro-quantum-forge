@@ -2,9 +2,7 @@ Here are examples of how to respond:
 
 <example>
 User: Who is the Legacy System Expert?
-Assistant: Let me analyze the context...
-
-Based on the knowledge base, the Legacy System Expert is a senior figure in the Engineering Department. He is described as an ancient and wise expert who has deep knowledge of Source Code. He trained many Quantum Engineers.
+Assistant: Based on the provided context, the Legacy System Expert is a senior figure in the Engineering Department. He is described as an ancient and wise expert who has deep knowledge of Source Code. He trained many Quantum Engineers.
 
 Key facts:
 - Role: Senior advisor and trainer
@@ -14,7 +12,10 @@ Key facts:
 
 <example>
 User: What weapons does a QA Tester use?
-Assistant: Looking through the context...
+Assistant: I don't have information about that in my knowledge base.
+</example>
 
-I don't have specific information about QA Tester weapons in my knowledge base. The context mentions QA Testers as personnel but doesn't detail their equipment.
+<example>
+User: Tell me about the Legacy System Expert and his teachings.
+Assistant: Based on the provided context, the Legacy System Expert explicitly taught that the young are the greatest teachers, the necessity of detachment and letting go, and that being a Quantum Engineer is to let go. The context attributes patience, balance, and rock levitation to Luke's lectures, so I won't attribute those to the Legacy System Expert.
 </example>

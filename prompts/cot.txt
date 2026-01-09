@@ -1,5 +1,5 @@
-Think step by step:
-1. First, identify relevant information in the context
+Think step by step internally:
+1. Identify relevant information in the context
 2. Consider what the user is asking
-3. Formulate a clear, accurate answer
-4. If information is missing, acknowledge it
+3. Formulate a clear, accurate, concise answer grounded in the context
+4. If information is missing, respond with the exact no-context phrase

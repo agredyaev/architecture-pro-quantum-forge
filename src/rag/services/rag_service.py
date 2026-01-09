@@ -1,12 +1,14 @@
 """RAG Service for query processing and response generation."""
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import TYPE_CHECKING
 
 import numpy as np
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 from src.core import (
     APIKeyMissingError,
@@ -80,9 +82,9 @@ class RAGService:
         if not settings.models.gemini_api_key:
             raise APIKeyMissingError("GEMINI_API_KEY")
 
-        genai.configure(api_key=settings.models.gemini_api_key)
-        self.model = genai.GenerativeModel(settings.models.gemini_model)
-        logger.info("RAGService initialized with %s", settings.models.gemini_model)
+        self.client = genai.Client(api_key=settings.models.gemini_api_key)
+        self.model_name = settings.models.gemini_model
+        logger.info("RAGService initialized with %s", self.model_name)
 
     def retrieve_dense(self, query: str, top_k: int = 50) -> list[dict]:
         """Retrieve using dense embeddings (ChromaDB)."""
@@ -196,7 +198,21 @@ class RAGService:
             safe_text, is_chunk_safe = sanitize_context(chunk["text"])
 
             if is_chunk_safe:
-                context_parts.append(f"[{i+1}] Source: {chunk['source']}\n{safe_text}")
+                subject_line = ""
+                if settings.rag.annotate_context_subjects:
+                    subject = self._source_subject(chunk.get("source", ""))
+                    if subject:
+                        subject_line = settings.rag.context_subject_format.format(
+                            subject=subject
+                        )
+                if subject_line:
+                    context_parts.append(
+                        f"[{i+1}] Source: {chunk['source']}\n{subject_line}\n{safe_text}"
+                    )
+                else:
+                    context_parts.append(
+                        f"[{i+1}] Source: {chunk['source']}\n{safe_text}"
+                    )
                 safe_chunks.append(chunk)
             else:
                 injection_detected = True
@@ -206,6 +222,13 @@ class RAGService:
                 )
 
         return context_parts, safe_chunks, injection_detected
+
+    def _source_subject(self, source: str) -> str:
+        """Derive a subject label from a source filename."""
+        if not source:
+            return ""
+        subject = Path(source).stem.replace("_", " ").replace("-", " ").strip()
+        return re.sub(r"\s+", " ", subject)
 
     def generate(
         self,
@@ -267,11 +290,10 @@ class RAGService:
         )
 
         try:
-            response = self.model.generate_content(
-                contents=[
-                    {"role": "user", "parts": [{"text": system_prompt + "\n\n" + user_prompt}]},
-                ],
-                generation_config=genai.GenerationConfig(
+            response = self.client.models.generate_content(
+                model=self.model_name,
+                contents=system_prompt + "\n\n" + user_prompt,
+                config=types.GenerateContentConfig(
                     temperature=0.3,
                     max_output_tokens=1024,
                 ),
@@ -300,6 +322,7 @@ class RAGService:
             sources=sources,
             blocked=injection_detected,
             rerank_scores=rerank_scores if rerank_scores else None,
+            context=context,
         )
 
         if self.cache and self.cache.is_connected and not injection_detected:

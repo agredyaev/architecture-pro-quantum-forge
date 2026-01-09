@@ -1,5 +1,6 @@
 """Query enhancement services: expansion, router."""
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
 from src.core import QueryExpansionError, get_logger, settings
 
@@ -16,17 +17,16 @@ def expand_query(query: str) -> list[str]:
         return [query]
 
     try:
-        genai.configure(api_key=settings.models.gemini_api_key)
-        model = genai.GenerativeModel(settings.models.gemini_model)
-
         prompt = settings.rag.expansion_prompt.format(
             count=settings.rag.expansion_count,
             query=query,
         )
 
-        response = model.generate_content(
-            prompt,
-            generation_config=genai.GenerationConfig(
+        client = genai.Client(api_key=settings.models.gemini_api_key)
+        response = client.models.generate_content(
+            model=settings.models.gemini_model,
+            contents=prompt,
+            config=types.GenerateContentConfig(
                 temperature=0.7,
                 max_output_tokens=200,
             ),
