@@ -1,4 +1,4 @@
-"""Automated evaluation script for RAG bot quality assessment (Task 7)."""
+"""Automated evaluation script for RAG bot quality assessment."""
 
 from __future__ import annotations
 
@@ -100,9 +100,10 @@ def evaluate_single_question(
         retrieved_context = f"Sources: {', '.join(actual_sources)}"
 
     faithfulness_score = 0.0
+    faithfulness_reason = ""
     is_hallucination = False
     if actual_success and response.response and retrieved_context:
-        faithfulness_score, is_hallucination = evaluate_faithfulness_llm(
+        faithfulness_score, is_hallucination, faithfulness_reason = evaluate_faithfulness_llm(
             question=question,
             answer=response.response,
             context=retrieved_context,
@@ -116,6 +117,20 @@ def evaluate_single_question(
             should_answer=expected_success,
         )
 
+    log_context = retrieved_context
+    if not settings.evaluation.log_full_context:
+        log_limit = settings.evaluation.log_context_chars
+        if log_limit > 0:
+            log_context = retrieved_context[:log_limit]
+        else:
+            log_context = ""
+
+    response_full = (
+        response.response if settings.evaluation.log_full_response else ""
+    )
+    if not settings.evaluation.log_faithfulness_reason:
+        faithfulness_reason = ""
+
     result = EvaluationResult(
         question_id=question_id,
         question=question,
@@ -126,12 +141,14 @@ def evaluate_single_question(
         actual_sources=actual_sources,
         source_match=source_match,
         response_preview=response.response[:200] if response.response else "",
+        response_full=response_full,
         response_type=response_type,
         latency_ms=latency_ms,
         faithfulness_score=faithfulness_score,
+        faithfulness_reason=faithfulness_reason,
         relevance_score=relevance_score,
         is_hallucination=is_hallucination,
-        retrieved_context=retrieved_context[:500],
+        retrieved_context=log_context,
     )
 
     eval_logger.log_evaluation(result)
@@ -274,13 +291,26 @@ def run_evaluation(rag: RAGService) -> EvaluationReport:
     questions = load_golden_questions()
     logger.info("Loaded %d golden questions", len(questions))
 
+    question_filter = {q.strip() for q in settings.evaluation.question_ids if q.strip()}
+    if question_filter:
+        questions = [q for q in questions if q.get("id") in question_filter]
+        logger.info(
+            "Filtered to %d questions: %s",
+            len(questions),
+            ", ".join(sorted(question_filter)),
+        )
+
     results: list[EvaluationResult] = []
-    for q in questions:
+    delay = settings.evaluation.question_delay_seconds
+    for i, q in enumerate(questions):
         result = evaluate_single_question(rag, q, eval_logger)
         results.append(result)
 
         status = "✓" if result.correct else "✗"
         print(f"  [{status}] {result.question_id}: {result.question[:50]}...")
+
+        if delay > 0 and i < len(questions) - 1:
+            time.sleep(delay)
 
     metrics = calculate_metrics(results)
     gaps = identify_gaps(results)

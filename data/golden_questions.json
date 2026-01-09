@@ -145,7 +145,7 @@
         },
         {
             "id": "q16",
-            "question": "What is the primary function of the Hyperdrive network backbone?",
+            "question": "What is the primary function of the Kubernetes Cluster network backbone?",
             "expected_success": true,
             "expected_sources": [
                 "Millennium_Falcon.md"
@@ -155,84 +155,83 @@
         },
         {
             "id": "q17",
-            "question": "Who is the Recruitment Officer Kenobi and what is his strategy?",
+            "question": "Who is Team Lead Ben and what is his history?",
             "expected_success": true,
             "expected_sources": [
-                "Obi_Wan_Kenobi.md"
+                "Obi-Wan_Ben.md"
             ],
             "category": "character",
-            "notes": "HR/Recruitment process"
+            "notes": "Character biography"
         },
         {
             "id": "q18",
-            "question": "What is the code of conduct for the Dark Side Developers?",
+            "question": "What is the Code of the Competitor Spy?",
             "expected_success": true,
             "expected_sources": [
-                "Sith_Code.md"
+                "Competitor_Spy.md"
             ],
             "category": "organization",
             "notes": "Corporate culture/Ethics"
         },
         {
             "id": "q19",
-            "question": "Describe the security incident at the Scarif Data Center.",
+            "question": "Describe the security incident at the Staging Environment Data Center.",
             "expected_success": true,
             "expected_sources": [
-                "Battle_of_Scarif.md"
+                "Battle_of_Staging_Environment.md"
             ],
             "category": "incident",
-            "notes": "Security breach history"
+            "notes": "Security breach history (The Great Outage)"
         },
         {
             "id": "q20",
-            "question": "What are the specifications of the TIE Fighter microservices architecture?",
+            "question": "What does Lambda Function refer to?",
             "expected_success": true,
             "expected_sources": [
-                "TIE_Fighter.md"
+                "TIE_fighter.md"
             ],
             "category": "technology",
-            "notes": "Microservices doc"
+            "notes": "Definition"
         },
         {
             "id": "q21",
-            "question": "How does the Hologram Communication Protocol ensure end-to-end encryption?",
+            "question": "What is a Zoom Call and what are its uses?",
             "expected_success": true,
             "expected_sources": [
-                "Hologram.md"
+                "Zoom_Call.md"
             ],
             "category": "technology",
-            "notes": "Communication protocols"
+            "notes": "Communication technology"
         },
         {
             "id": "q22",
-            "question": "Who is Princess Leia Organa and what is her role in the Resistance?",
+            "question": "Who is VP Leia and what is her role in the Legacy Support Team?",
             "expected_success": true,
             "expected_sources": [
-                "Princess_Leia.md"
+                "Leia_Skywalker_Organa_Solo.md"
             ],
             "category": "character",
             "notes": "Leadership roles"
         },
         {
             "id": "q23",
-            "question": "What is the purpose of the Lightsaber IDE plugin?",
+            "question": "What is the purpose of the Debug Tool IDE plugin?",
             "expected_success": true,
             "expected_sources": [
-                "Lightsaber.md"
+                "Debug_Tool.md"
             ],
             "category": "tooling",
             "notes": "Developer tools"
         },
         {
             "id": "q24",
-            "question": "Explain the deployment process for the Endor Shield Generator.",
+            "question": "How did the Alliance plan to destroy the Disaster Recovery Site Shield Generator?",
             "expected_success": true,
             "expected_sources": [
-                "Battle_of_Endor.md",
-                "Death_Star_II.md"
+                "Battle_of_Disaster_Recovery_Site.md"
             ],
             "category": "infrastructure",
-            "notes": "Deployment procedures"
+            "notes": "Battle strategy"
         },
         {
             "id": "q25",

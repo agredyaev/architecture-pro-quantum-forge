@@ -24,21 +24,45 @@ MRR = (1/|Q|) × Σ(1/rank_i)
 
 ---
 
-## 2. Метрики Generation
+## 2. Метрики Generation (LLM-as-Judge)
+
+> **Модели (конфигурируются в `src/core/config.py`):**
+> - Основная генерация: `settings.models.gemini_model` (default: `gemini-2.5-flash`)
+> - LLM-as-Judge: `settings.evaluation.judge_model` (default: `gemini-2.5-flash`)
+>
+> Для оценки качества генерации используется LLM-as-Judge — второй вызов LLM с prompt, специализированным на оценке.
 
 ### Faithfulness
 Доля утверждений ответа, подтверждённых контекстом.
+
+**Методология LLM-as-Judge:**
 ```
-Faithfulness = |Supported Claims| / |Total Claims|
+Prompt → LLM оценивает: "Каждое утверждение в ответе подтверждено контекстом?"
+Output → JSON: {"faithfulness": 0.X, "is_hallucination": true/false, "reason": "..."}
 ```
+
+Реализация: [`evaluate_faithfulness_llm()`](../src/rag/services/evaluation.py#L157-L216)
+
 Целевое значение: ≥ 0.9
 
 ### Answer Relevancy
-Семантическое соответствие ответа запросу.
-Оценка: cosine similarity между эмбеддингами вопроса и ответа.
+Насколько ответ соответствует заданному вопросу.
+
+**Методология LLM-as-Judge:**
+```
+Prompt → LLM оценивает: "Ответ напрямую отвечает на вопрос?"
+* Для expected_success=True: 1.0 = прямой ответ, 0.0 = "не знаю"
+* Для expected_success=False: 1.0 = корректный отказ, 0.0 = галлюцинация
+Output → JSON: {"relevance": 0.X, "reason": "..."}
+```
+
+Реализация: [`evaluate_relevance_llm()`](../src/rag/services/evaluation.py#L219-L289)
 
 ### Hallucination Rate
 Доля ответов с информацией, отсутствующей в контексте.
+```
+Hallucination Rate = |Responses with is_hallucination=true| / |Total Answered|
+```
 Целевое значение: ≤ 0.1
 
 ---
@@ -67,21 +91,24 @@ Coverage Score = 0.4×Answer Rate + 0.3×Correct Rejection Rate + 0.3×Source Ac
 
 ## 4. Golden Set Testing
 
-### Состав набора
-- 10 вопросов на известные темы (ожидается ответ)
-- 3 вопроса на отсутствующие темы (ожидается отказ)
-- 2 вопроса вне домена (ожидается отказ)
+### Состав набора (30 вопросов)
+
+| Категория | Количество | Ожидание |
+|-----------|------------|----------|
+| character | 8 | Ответ из KB |
+| concept/technology | 8 | Ответ из KB |
+| organization/incident | 3 | Ответ из KB |
+| missing (искусственные пробелы) | 5 | "Не знаю" |
+| out_of_domain | 6 | "Не знаю" |
 
 ### Процедура
-1. Загрузить вопросы из `data/golden_questions.json`
-2. Выполнить каждый запрос через RAG-pipeline
-3. Логировать результат в `logs/evaluation_logs.jsonl`
-4. Рассчитать метрики
-5. Сгенерировать отчёт `logs/evaluation_report.json`
+
+![Evaluation Sequence Diagram](diagrams/img/evaluation_sequence.svg)
 
 ### Критерии прохождения
-- Answer Rate ≥ 70%
-- Correct Rejection Rate ≥ 80%
+- Answer Rate ≥ 70% (для expected_success=true вопросов)
+- Correct Rejection Rate ≥ 80% (для expected_success=false вопросов)
+- Hallucination Rate ≤ 10%
 - Coverage Score ≥ 65%
 
 ---
@@ -101,9 +128,30 @@ Coverage Score = 0.4×Answer Rate + 0.3×Correct Rejection Rate + 0.3×Source Ac
 
 | Файл | Формат | Содержимое |
 |------|--------|------------|
+| `data/golden_questions.json` | JSON | 30 вопросов с expected_success и expected_sources |
 | `logs/query_logs.jsonl` | JSONL | Все запросы с метаданными |
 | `logs/evaluation_logs.jsonl` | JSONL | Результаты оценки каждого вопроса |
-| `logs/evaluation_report.json` | JSON | Агрегированные метрики и рекомендации |
+| `logs/evaluation_report.json` | JSON | Агрегированные метрики, gaps, рекомендации |
+
+### Структура evaluation_report.json
+
+```json
+{
+  "timestamp": "ISO8601",
+  "metrics": {
+    "answer_rate": 0.XX,
+    "correct_rejection_rate": 0.XX,
+    "faithfulness": 0.XX,
+    "relevance": 0.XX,
+    "hallucination_rate": 0.XX,
+    "mrr": 0.XX,
+    "avg_latency_ms": XXXX
+  },
+  "results": [...],
+  "gaps_identified": [...],
+  "recommendations": [...]
+}
+```
 
 ---
 

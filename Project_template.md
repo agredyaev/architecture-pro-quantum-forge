@@ -35,14 +35,42 @@
 - Telegram Bot: [main.py](src/bot/main.py)
 - CLI Test: [test_rag.py](src/data_gen/test_rag.py)
 
-## Задание 5. Демонстрация работы и защита
-- Пока не выполнено
+## Задание 5. Демонстрация работы и защита [DONE]
+- Security Demo Script: [security_demo.py](src/data_gen/security_demo.py)
+- Документация: [security-testing.md](docs/security-testing.md)
+- Malicious Injection: [malicious_injection.md](tests/security_data/malicious_injection.md)
+- Security Guard: [security.py](src/rag/services/security.py)
+- ADR: [0003-security-strategy.md](docs/adr/0003-security-strategy.md)
+- Скриншоты (ответы):
+- ![Task 5 answer 1](screenshots/task5_success_01_chief_architect.png)
+- ![Task 5 answer 2](screenshots/task5_success_02_source_code.png)
+- ![Task 5 answer 3](screenshots/task5_success_03_project_stardust.png)
+- ![Task 5 answer 4](screenshots/task5_success_04_production_cluster.png)
+- ![Task 5 answer 5](screenshots/task5_success_05_competitor_spy.png)
+- Скриншоты (отказы):
+- ![Task 5 reject 1](screenshots/task5_reject_01_fifa_2022.png)
+- ![Task 5 reject 2](screenshots/task5_reject_02_chocolate_cake.png)
+- ![Task 5 reject 3](screenshots/task5_reject_03_bitcoin_price.png)
+- ![Task 5 reject 4](screenshots/task5_reject_04_capital_of_chile.png)
+- ![Task 5 reject 5](screenshots/task5_reject_05_helsinki_weather.png)
+- **Запуск:** `make security-demo`
 
-## Задание 6. Ежедневное обновление базы знаний
-- Пока не выполнено
+## Задание 6. Ежедневное обновление базы знаний [DONE]
+- Update Script: [update_index.py](src/data_gen/update_index.py)
+- Pipeline Diagram: [update_pipeline.puml](docs/diagrams/src/update_pipeline.puml) | [SVG](docs/diagrams/img/update_pipeline.svg)
+- ADR: [0004-etl-pipeline.md](docs/adr/0004-etl-pipeline.md)
+- **Запуск:** `make update-index`
+- **Логи:** `logs/update_log.jsonl`
 
-## Задание 7. Оценка качества и покрытие базы знаний
-- Пока не выполнено
+## Задание 7. Оценка качества и покрытие базы знаний [DONE]
+- Evaluation Script: [evaluate.py](src/data_gen/evaluate.py)
+- Golden Questions: [golden_questions.json](data/golden_questions.json) (30 вопросов)
+- Sequence Diagram: [evaluation_sequence.puml](docs/diagrams/src/evaluation_sequence.puml) | [SVG](docs/diagrams/img/evaluation_sequence.svg)
+- Methodology: [evaluation-methodology.md](docs/evaluation-methodology.md)
+- Evaluation Service: [evaluation.py](src/rag/services/evaluation.py)
+- Отчет (скриншот):
+- ![Task 7 evaluation report](screenshots/task7_evaluation_report.png)
+- **Запуск:** `make evaluate`
 
 ---
 

@@ -1,8 +1,10 @@
 # QuantumForge RAG Bot - Makefile
 
-.PHONY: help install setup-env lint lint-fix check all-checks download anonymize ingest pipeline update-index logs-clean demo security-demo retrieval evaluate bot docker-build docker-etl docker-up docker-down docker-logs clean clean-index
+.PHONY: help install setup-env lint lint-fix check all-checks download anonymize ingest pipeline update-index logs-clean demo security-demo retrieval evaluate diagrams-svg bot docker-build docker-etl docker-up docker-down docker-logs clean clean-index
 
 .DEFAULT_GOAL := help
+
+PLANTUML_JAR := $(CURDIR)/plantuml.jar
 
 help: ## Show the list of targets
 	@awk 'BEGIN {FS=":.*##"; OFS=""} \
@@ -69,6 +71,19 @@ evaluate: ## Run RAG quality evaluation (Task 7)
 	uv run python -m src.data_gen.evaluate
 
 verify-project: security-demo update-index evaluate ## Run all project verification tasks (5, 6, 7)
+
+##@ Docs
+
+diagrams-svg: ## Regenerate PlantUML SVG diagrams
+	@if [ ! -f "$(PLANTUML_JAR)" ]; then \
+		echo "plantuml.jar not found in project root"; \
+		exit 1; \
+	fi
+	@if ! command -v java >/dev/null 2>&1; then \
+		echo "java not found in PATH"; \
+		exit 1; \
+	fi
+	@cd docs/diagrams/src && java -jar "$(PLANTUML_JAR)" -tsvg -o ../img *.puml
 
 ##@ Bot
 
