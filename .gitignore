@@ -12,6 +12,7 @@ venv/
 .vscode/
 .idea/
 .DS_Store
+.temp/
 
 # Data & Storage
 data/chroma_storage/
