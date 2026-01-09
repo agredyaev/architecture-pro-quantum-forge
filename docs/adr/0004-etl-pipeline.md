@@ -44,11 +44,11 @@
 }
 ```
 
-### Алгоритм ingest.py
+### Алгоритм update_index.py
 
 ```
 1. SCAN
-   - Обход filesystem: glob("knowledge_base/**/*.md")
+   - Обход filesystem: glob("data/processed/*.md")
    - Расчет MD5 для каждого файла
    - Результат: dict[path, hash]
    - Время: O(N), ~5 сек для 21K файлов
@@ -106,9 +106,9 @@
 | Incremental (10 файлов) | 10-20 сек |
 | Incremental (100 файлов) | 1-2 мин |
 
-Логирование: `logs/ingest.jsonl`
+Логирование: `logs/update_index.log`
 ```json
-{"timestamp": "2026-01-08T12:00:00Z", "added": 5, "deleted": 0, "duration_sec": 15}
+{"timestamp": "2026-01-08T12:00:00Z", "status": "success", "files_scanned": 120, "files_added": 5, "files_updated": 0, "files_deleted": 0, "chunks_indexed": 420, "index_size": 16304, "duration_seconds": 15.0, "errors": []}
 ```
 
 ## Связанные документы

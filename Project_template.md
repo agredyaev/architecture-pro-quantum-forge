@@ -16,7 +16,7 @@
 - URLs для скрапинга: [scrape_urls.json](data/scrape_urls.json)
 - Словарь замен: [replacements.json](data/replacements.json)
 - Экспортированный маппинг: [terms_map.json](data/terms_map.json)
-- База знаний: [knowledge_base/](knowledge_base/) (32 документа)
+- База знаний: [data/processed/](data/processed/) (32 документа)
 
 ## Задание 3. Создание векторного индекса [DONE]
 - Документация: [task-3-vector-index.md](docs/task-3-vector-index.md)

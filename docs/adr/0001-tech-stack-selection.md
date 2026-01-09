@@ -44,13 +44,13 @@ RAG-система для базы знаний QuantumForge Software.
 | Модель | Input $/1M | Output $/1M | Context | MMLU | TTFT |
 |--------|------------|-------------|---------|------|------|
 | GPT-5 mini | 0.25 | 2.00 | 128K | 84% | 200-400ms |
-| Gemini 3 Flash | 0.50 | 3.00 | 1M | 86% | 150-300ms |
+| Gemini 2.5 Flash | 0.50 | 3.00 | 1M | 86% | 150-300ms |
 | Claude Haiku 4.5 | 1.00 | 5.00 | 200K | 82% | 200-400ms |
 | Llama 3.1 70B | 0 (GPU $316/мес) | - | 128K | 83% | 2-5s |
 
 Расчет стоимости (500 req/day, 2000 tok in, 500 tok out):
 - GPT-5 mini: $22.50/мес
-- Gemini 3 Flash: $37.50/мес
+- Gemini 2.5 Flash: $37.50/мес
 - Llama 70B: $316/мес (GPU)
 
 ### 2. Vector DB
@@ -73,10 +73,10 @@ RAG-система для базы знаний QuantumForge Software.
 
 | Компонент | Выбор | Обоснование |
 |-----------|-------|-------------|
-| LLM | Gemini 3 Flash | Контекст 1M (8x больше GPT-5 mini), TTFT 150-300ms, $37.50/мес |
+| LLM | Gemini 2.5 Flash | Контекст 1M (8x больше GPT-5 mini), TTFT 150-300ms, $37.50/мес |
 | Vector DB | ChromaDB | Соответствует C-01, встроенные метаданные, 2.58ms query |
 | Embeddings | Nomic Embed v1.5 | Соответствует C-02 и FR-03 (768 dim), 8192 контекст |
-| Reranker | mxbai-rerank-large-v1 | Необходим для FR-05 (score > 0.5 фильтрация) |
+| Reranker | cross-encoder/ms-marco-MiniLM-L-6-v2 | Необходим для FR-05 (score > 2.8 фильтрация) |
 
 ## План миграции на Qdrant
 

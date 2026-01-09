@@ -21,7 +21,7 @@
 ## Источники
 - [Research Report](../research/task-1-infrastructure-research.md)
 - [ColBERT Paper](https://arxiv.org/abs/2004.12832)
-- [mxbai-colbert-large-v1](https://huggingface.co/mixedbread-ai/mxbai-colbert-large-v1)
+- [colbert-ir/colbertv2.0](https://huggingface.co/colbert-ir/colbertv2.0)
 
 ---
 
@@ -51,7 +51,7 @@
 | Hybrid (Dense + Sparse) | 75% | 10ms | RRF merge |
 | **ColBERT (late interaction)** | 82% | 30ms | Token-to-token MaxSim |
 
-**Решение: ColBERT (mixedbread-ai/mxbai-colbert-large-v1)**
+**Решение: ColBERT (colbert-ir/colbertv2.0)**
 
 Причины:
 - +17% Precision vs single dense embedding (65% → 82%)
@@ -91,12 +91,12 @@ score = sum(max(q @ d.T for d in doc_tokens) for q in query_tokens)
 |-------|-------------|---------|--------|
 | None | 65% | 0ms | - |
 | Bi-encoder | 70% | 50ms | same as retrieval |
-| **Cross-encoder** | 80% | 200ms | mxbai-rerank-large-v1 |
+| **Cross-encoder** | 80% | 200ms | cross-encoder/ms-marco-MiniLM-L-6-v2 |
 | LLM-as-judge | 85% | 500ms | Gemini |
 
-**Решение: Cross-encoder (mxbai-rerank-large-v1)**
+**Решение: Cross-encoder (cross-encoder/ms-marco-MiniLM-L-6-v2)**
 - Причина: лучший quality/latency ratio
-- Top-50 → Top-5, threshold 0.5
+- Top-50 → Top-5, threshold 2.8
 
 ---
 
