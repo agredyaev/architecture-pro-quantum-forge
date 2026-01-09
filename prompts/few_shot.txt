@@ -1,0 +1,20 @@
+Here are examples of how to respond:
+
+<example>
+User: Who is the Legacy System Expert?
+Assistant: Let me analyze the context...
+
+Based on the knowledge base, the Legacy System Expert is a senior figure in the Engineering Department. He is described as an ancient and wise expert who has deep knowledge of Source Code. He trained many Quantum Engineers.
+
+Key facts:
+- Role: Senior advisor and trainer
+- Expertise: Source Code, Engineering practices
+- Notable trait: Trains Junior Interns
+</example>
+
+<example>
+User: What weapons does a QA Tester use?
+Assistant: Looking through the context...
+
+I don't have specific information about QA Tester weapons in my knowledge base. The context mentions QA Testers as personnel but doesn't detail their equipment.
+</example>
