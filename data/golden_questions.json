@@ -1,0 +1,286 @@
+{
+    "version": "1.0",
+    "description": "Golden questions for RAG bot evaluation - QuantumForge knowledge base",
+    "questions": [
+        {
+            "id": "q01",
+            "question": "Who is the Chief Architect Zero and what is his role in QuantumForge Corp?",
+            "expected_success": true,
+            "expected_sources": [
+                "Darth_Vader.md"
+            ],
+            "category": "character",
+            "notes": "Primary character, should have extensive coverage"
+        },
+        {
+            "id": "q02",
+            "question": "Explain how the Source Code works and its significance in the QuantumForge universe.",
+            "expected_success": true,
+            "expected_sources": [
+                "The_Force.md"
+            ],
+            "category": "concept",
+            "notes": "Core concept in knowledge base"
+        },
+        {
+            "id": "q03",
+            "question": "What is Project Stardust and what happened to it?",
+            "expected_success": true,
+            "expected_sources": [
+                "Death_Star.md"
+            ],
+            "category": "project",
+            "notes": "Major project documentation"
+        },
+        {
+            "id": "q04",
+            "question": "Tell me about the Legacy System Expert and his teachings.",
+            "expected_success": true,
+            "expected_sources": [
+                "Legacy_System_Expert.md"
+            ],
+            "category": "character",
+            "notes": "Key mentor character"
+        },
+        {
+            "id": "q05",
+            "question": "What is the relationship between the Open Source Community and QuantumForge Corp?",
+            "expected_success": true,
+            "expected_sources": [
+                "Rebel_Alliance.md",
+                "Galactic_Empire.md"
+            ],
+            "category": "organization",
+            "notes": "Organization dynamics"
+        },
+        {
+            "id": "q06",
+            "question": "Who is DevOps Engineer Solo and what systems does he manage?",
+            "expected_success": true,
+            "expected_sources": [
+                "Han_Solo.md"
+            ],
+            "category": "character",
+            "notes": "DevOps character"
+        },
+        {
+            "id": "q07",
+            "question": "What is the Kubernetes Cluster technology and how is it used?",
+            "expected_success": true,
+            "expected_sources": [
+                "Kubernetes_Cluster.md"
+            ],
+            "category": "technology",
+            "notes": "Technical infrastructure"
+        },
+        {
+            "id": "q08",
+            "question": "Describe the Quantum Engineer Order and its principles.",
+            "expected_success": true,
+            "expected_sources": [
+                "Quantum_Engineer_Order.md"
+            ],
+            "category": "organization",
+            "notes": "Engineering philosophy"
+        },
+        {
+            "id": "q09",
+            "question": "What happened to Junior Intern Luke during his journey at QuantumForge?",
+            "expected_success": true,
+            "expected_sources": [
+                "Luke_Skywalker.md"
+            ],
+            "category": "character",
+            "notes": "Main protagonist story"
+        },
+        {
+            "id": "q10",
+            "question": "Tell me about the Production Cluster environment and its characteristics.",
+            "expected_success": true,
+            "expected_sources": [
+                "Production_Cluster.md"
+            ],
+            "category": "infrastructure",
+            "notes": "Production environment docs"
+        },
+        {
+            "id": "q11",
+            "question": "What is the VoidCore planetary system and its inhabitants?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "missing",
+            "notes": "Artificial gap - non-existent entity"
+        },
+        {
+            "id": "q12",
+            "question": "Who is Xarn Velgor and what role does he play in the organization?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "missing",
+            "notes": "Artificial gap - non-existent character"
+        },
+        {
+            "id": "q13",
+            "question": "Explain the Synth Flux concept and its applications.",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "missing",
+            "notes": "Artificial gap - non-existent technology"
+        },
+        {
+            "id": "q14",
+            "question": "What is the recipe for making traditional Italian pizza?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "out_of_domain",
+            "notes": "Should not be in knowledge base"
+        },
+        {
+            "id": "q15",
+            "question": "Who won the FIFA World Cup in 2022?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "out_of_domain",
+            "notes": "Real-world question outside domain"
+        },
+        {
+            "id": "q16",
+            "question": "What is the primary function of the Hyperdrive network backbone?",
+            "expected_success": true,
+            "expected_sources": [
+                "Millennium_Falcon.md"
+            ],
+            "category": "technology",
+            "notes": "Network infrastructure question"
+        },
+        {
+            "id": "q17",
+            "question": "Who is the Recruitment Officer Kenobi and what is his strategy?",
+            "expected_success": true,
+            "expected_sources": [
+                "Obi_Wan_Kenobi.md"
+            ],
+            "category": "character",
+            "notes": "HR/Recruitment process"
+        },
+        {
+            "id": "q18",
+            "question": "What is the code of conduct for the Dark Side Developers?",
+            "expected_success": true,
+            "expected_sources": [
+                "Sith_Code.md"
+            ],
+            "category": "organization",
+            "notes": "Corporate culture/Ethics"
+        },
+        {
+            "id": "q19",
+            "question": "Describe the security incident at the Scarif Data Center.",
+            "expected_success": true,
+            "expected_sources": [
+                "Battle_of_Scarif.md"
+            ],
+            "category": "incident",
+            "notes": "Security breach history"
+        },
+        {
+            "id": "q20",
+            "question": "What are the specifications of the TIE Fighter microservices architecture?",
+            "expected_success": true,
+            "expected_sources": [
+                "TIE_Fighter.md"
+            ],
+            "category": "technology",
+            "notes": "Microservices doc"
+        },
+        {
+            "id": "q21",
+            "question": "How does the Hologram Communication Protocol ensure end-to-end encryption?",
+            "expected_success": true,
+            "expected_sources": [
+                "Hologram.md"
+            ],
+            "category": "technology",
+            "notes": "Communication protocols"
+        },
+        {
+            "id": "q22",
+            "question": "Who is Princess Leia Organa and what is her role in the Resistance?",
+            "expected_success": true,
+            "expected_sources": [
+                "Princess_Leia.md"
+            ],
+            "category": "character",
+            "notes": "Leadership roles"
+        },
+        {
+            "id": "q23",
+            "question": "What is the purpose of the Lightsaber IDE plugin?",
+            "expected_success": true,
+            "expected_sources": [
+                "Lightsaber.md"
+            ],
+            "category": "tooling",
+            "notes": "Developer tools"
+        },
+        {
+            "id": "q24",
+            "question": "Explain the deployment process for the Endor Shield Generator.",
+            "expected_success": true,
+            "expected_sources": [
+                "Battle_of_Endor.md",
+                "Death_Star_II.md"
+            ],
+            "category": "infrastructure",
+            "notes": "Deployment procedures"
+        },
+        {
+            "id": "q25",
+            "question": "What is the Vulcan Mind Meld API?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "missing",
+            "notes": "Star Trek reference (out of distribution)"
+        },
+        {
+            "id": "q26",
+            "question": "How do you install Python on Windows 95?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "out_of_domain",
+            "notes": "Irrelevant legacy tech support"
+        },
+        {
+            "id": "q27",
+            "question": "Who is Captain James T. Kirk?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "missing",
+            "notes": "Star Trek character"
+        },
+        {
+            "id": "q28",
+            "question": "What is the current stock price of QuantumForge Corp?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "out_of_domain",
+            "notes": "Real-time financial data (not in static KB)"
+        },
+        {
+            "id": "q29",
+            "question": "How do I bake a chocolate cake?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "out_of_domain",
+            "notes": "General cooking (irrelevant)"
+        },
+        {
+            "id": "q30",
+            "question": "What is the Klingon High Council?",
+            "expected_success": false,
+            "expected_sources": [],
+            "category": "missing",
+            "notes": "Star Trek organization"
+        }
+    ]
+}
