@@ -12,7 +12,7 @@ AddRelTag("MainFlow", $lineColor=C_EMERALD400, $textColor=C_MUTED)
 Person(user, "Employee", "Uses the bot via Telegram")
 
 System_Ext(tg_platform, "Telegram API", "EXTERNAL", "Handles message delivery")
-System_Ext(google_api, "Google Gemini 3 Flash", "EXTERNAL", "LLM Provider")
+System_Ext(google_api, "Google Gemini 2.5 Flash", "EXTERNAL", "LLM Provider")
 
 System_Boundary(bot_boundary, "RAG Bot Host (Single Process / Docker)") {
     Container(tg_bot, "Telegram Bot Service", "Python, Aiogram", "Handles user interaction, sessions, and input validation.")

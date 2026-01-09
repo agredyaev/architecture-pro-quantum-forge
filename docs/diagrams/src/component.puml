@@ -11,16 +11,16 @@ AddRelTag("MainFlow", $lineColor=C_EMERALD400, $textColor=C_MUTED)
 
 Container_Boundary(rag_boundary, "RAG Engine Service") {
     Component(router, "Adaptive Router", "Heuristics", "Determines if RAG is needed or direct LLM")
-    Component(expander, "Query Expansion", "Gemini API", "Generates variations (3x) for broader coverage", $tags="Core")
+    Component(expander, "Query Expansion", "Gemini 2.5 Flash", "Generates variations (3x) for broader coverage", $tags="Core")
     
     Container_Boundary(retrieval_strat, "Hybrid Retrieval Strategy") {
          Component(dense_retriever, "Dense Retriever", "ChromaDB", "Semantic similarity search", $tags="Core")
-         Component(colbert_retriever, "ColBERT Retriever", "mxbai-colbert-large", "Late interaction fine-grained search", $tags="Core")
+         Component(colbert_retriever, "ColBERT Retriever", "colbert-ir/colbertv2.0", "Late interaction fine-grained search", $tags="Core")
          Component(rrf_fusion, "RRF Fusion", "Algorithm", "Combines and ranks Dense + ColBERT results")
     }
 
-    Component(reranker, "Cross-Encoder Reranker", "mxbai-rerank-large", "Re-scores candidates for precision")
-    Component(generator, "LLM Generator", "Gemini 3 Flash", "Generates final answer with context")
+    Component(reranker, "Cross-Encoder Reranker", "cross-encoder/ms-marco-MiniLM-L-6-v2", "Re-scores candidates for precision")
+    Component(generator, "LLM Generator", "Gemini 2.5 Flash", "Generates final answer with context")
     Component(security, "Security Guard", "Regex/Canary", "Sanitizes input, masks PII, checks injection")
 }
 

@@ -14,7 +14,7 @@ System_Boundary(scheduler, "Scheduler Layer") {
 }
 
 System_Boundary(source, "Content Source") {
-    Component(files, "Markdown Files", "knowledge_base/*.md", "Source documentation")
+    Component(files, "Markdown Files", "data/processed/*.md", "Source documentation")
 }
 
 System_Boundary(pipeline, "Update Pipeline (Python)") {
@@ -23,7 +23,7 @@ System_Boundary(pipeline, "Update Pipeline (Python)") {
     
     Component(detector, "Change Detector", "Logic", "Identifies New/Modified/Deleted files", $tags="Core")
     
-    Component(chunker, "Chunker", "LangChain/Custom", "Semantic splitting of documents")
+    Component(chunker, "Chunker", "LangChain/Custom", "Semantic chunking (threshold 0.5)")
     Component(embedder, "Embedder", "SentenceTransformers", "Generates dense vectors")
 }
 

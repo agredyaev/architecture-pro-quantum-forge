@@ -96,7 +96,8 @@ participant "Evaluate Script" as Eval <<Script>>
 participant "RAG Service" as RAG <<Service>>
 participant "Vector DB" as VDB <<Database>>
 participant "Reranker" as RR <<Service>>
-participant "LLM" as LLM <<Service>>
+participant "LLM\n(gemini-2.5-flash)" as LLM <<Service>>
+participant "LLM-as-Judge\n(gemini-2.5-flash)" as Judge <<Service>>
 participant "Evaluation Logger" as Log <<Logger>>
 participant "Report Generator" as Report <<Service>>
 
@@ -140,7 +141,19 @@ loop For each Golden Question
             LLM --> RAG: Generated answer
             deactivate LLM
             RAG --> Eval: RAGResponse
-            Eval -> Log: Log success
+            
+            ' LLM-as-Judge Evaluation
+            Eval -> Judge: evaluate_faithfulness_llm(question, answer, context)
+            activate Judge
+            Judge --> Eval: {faithfulness, is_hallucination}
+            deactivate Judge
+            
+            Eval -> Judge: evaluate_relevance_llm(question, answer, should_answer)
+            activate Judge
+            Judge --> Eval: {relevance}
+            deactivate Judge
+            
+            Eval -> Log: Log evaluation result
         end
     end
     deactivate RAG
