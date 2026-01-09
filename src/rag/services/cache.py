@@ -14,10 +14,9 @@ from src.core import get_logger, settings
 if TYPE_CHECKING:
     from numpy.typing import NDArray
 
-logger = get_logger(__name__)
+    RedisClient = redis.Redis[bytes]
 
-# Type alias for sync Redis client with bytes response
-RedisClient = redis.Redis[bytes]
+logger = get_logger(__name__)
 
 
 class SemanticCache:

@@ -7,15 +7,17 @@ from pydantic import BaseModel
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-class ModelConfig(BaseModel):
+class ModelSettings(BaseSettings):
     """LLM and embedding model configuration."""
 
     gemini_api_key: str | None = None
-    gemini_model: str = "gemini-3.0-flash-preview"
+    gemini_model: str = "gemini-2.5-flash"
     embedding_model_path: str = "nomic-ai/nomic-embed-text-v1.5"
     colbert_model_path: str = "colbert-ir/colbertv2.0"
-    rerank_model_path: str = "mixedbread-ai/mxbai-rerank-large-v1"
+    rerank_model_path: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
     max_embedding_dim: int = 768
+
+    model_config = SettingsConfigDict(env_file=find_dotenv(usecwd=True), extra="ignore")
 
 
 class VectorDBConfig(BaseModel):
@@ -26,16 +28,20 @@ class VectorDBConfig(BaseModel):
     chroma_batch_size: int = 5000
 
 
-class RedisConfig(BaseModel):
+class RedisSettings(BaseSettings):
     """Redis cache configuration."""
 
     redis_url: str = "redis://localhost:6379/0"
 
+    model_config = SettingsConfigDict(env_file=find_dotenv(usecwd=True), extra="ignore")
 
-class TelegramConfig(BaseModel):
+
+class TelegramSettings(BaseSettings):
     """Telegram bot configuration."""
 
     telegram_bot_token: str | None = None
+
+    model_config = SettingsConfigDict(env_file=find_dotenv(usecwd=True), extra="ignore")
 
 
 class AppConfig(BaseModel):
@@ -57,7 +63,7 @@ class RAGConfig(BaseModel):
     vector_size: Literal[768, 512, 256, 128, 64] = 768
     top_k_retrieval: int = 50
     top_k_rerank: int = 5
-    rerank_threshold: float = 0.5
+    rerank_threshold: float = 2.8
     use_colbert: bool = True
     colbert_index_path: str = "data/colbert_index"
     rrf_k: int = 60
@@ -75,6 +81,28 @@ class RAGConfig(BaseModel):
     use_adaptive_router: bool = True
     greeting_patterns: list[str] = ["привет", "hello", "hi", "здравствуй", "добрый"]
     min_query_length: int = 5
+
+    # Prompt behavior
+    strict_attribution: bool = True
+    strict_attribution_instruction: str = (
+        "When context uses pronouns or ambiguous subjects, do not guess. "
+        "Avoid attributing actions to named entities unless explicitly stated. "
+        "Do not promote related technology or background facts into direct use-cases. "
+        "If context says a technology behind X was used for Y, do not say X was used for Y. "
+        "Do not generalize a capability from one example to other entities unless each is explicitly linked. "
+        "When listing multiple entities, keep claims scoped to the entity explicitly stated in context. "
+        "If a chunk has a 'Subject:' that is different from the question subject, "
+        "do not replace that subject with the question subject. "
+        "Keep the original subject as the actor or omit the claim. "
+        "If a sentence uses pronouns (he/she/they) and the antecedent is unclear, repeat the pronoun or "
+        "use a neutral phrase like 'the person described' rather than naming an entity. "
+        "If a snippet is labeled 'Source: X.md' and uses pronouns without explicit subject, "
+        "assume the pronouns refer to X (the source subject), not the asked entity. "
+        "When a snippet includes a 'Subject:' line, use that subject to resolve pronouns. "
+        "If unclear, keep the original subject from the context or omit the claim."
+    )
+    annotate_context_subjects: bool = True
+    context_subject_format: str = "Subject: {subject}"
 
     # Caching
     use_semantic_cache: bool = True
@@ -176,7 +204,7 @@ class PathConfig(BaseModel):
     evaluation_report_file: Path = Path("logs/evaluation_report.json")
     update_log_file: Path = Path("logs/update_index.log")
 
-    knowledge_base_dir: Path = Path("knowledge_base")
+    knowledge_base_dir: Path = Path("data/processed")
 
 
 class LoggingConfig(BaseModel):
@@ -197,10 +225,18 @@ class ScrapingConfig(BaseModel):
 class EvaluationConfig(BaseModel):
     """Evaluation metrics thresholds and settings."""
 
-    min_answer_rate: float = 0.7
+    judge_model: str = "gemini-2.5-flash"
+    judge_context_chars: int = 0
+    question_delay_seconds: float = 2.0
+    question_ids: list[str] = []
+    log_full_context: bool = True
+    log_context_chars: int = 500
+    log_full_response: bool = True
+    log_faithfulness_reason: bool = True
+    min_answer_rate: float = 0.8
     min_rejection_rate: float = 0.8
-    min_source_accuracy: float = 0.6
-    max_latency_ms: int = 5000
+    min_source_accuracy: float = 0.8
+    max_latency_ms: int = 4500
 
 
 class IndexUpdateConfig(BaseModel):
@@ -215,9 +251,9 @@ class Settings(BaseSettings):
     """Main settings composed from focused config classes."""
 
     app: AppConfig = AppConfig()
-    telegram: TelegramConfig = TelegramConfig()
-    redis: RedisConfig = RedisConfig()
-    models: ModelConfig = ModelConfig()
+    telegram: TelegramSettings = TelegramSettings()
+    redis: RedisSettings = RedisSettings()
+    models: ModelSettings = ModelSettings()
     vector_db: VectorDBConfig = VectorDBConfig()
     rag: RAGConfig = RAGConfig()
     security: SecurityConfig = SecurityConfig()
@@ -232,7 +268,6 @@ class Settings(BaseSettings):
         env_file=find_dotenv(usecwd=True),
         env_file_encoding="utf-8",
         extra="ignore",
-        env_nested_delimiter="__",
     )
 
 
