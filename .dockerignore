@@ -1,0 +1,54 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+.venv
+venv
+.env
+*.egg-info
+
+# Tools
+.mypy_cache
+.ruff_cache
+.pytest_cache
+.vscode
+.idea
+.DS_Store
+
+# Data (mounted as volumes - exclude generated data only)
+data/chroma_storage
+data/colbert_index
+data/processed
+data/raw
+data/redis_data
+logs
+# Keep static config files
+!data/replacements.json
+!data/terms_map.json
+!data/scrape_urls.json
+!data/golden_questions.json
+
+# Documentation
+docs
+*.md
+!README.md
+!Makefile
+
+# Tests
+tests
+
+# Temp
+.temp
+*.sqlite3
+*.rdb
+*.bin
+*.pickle
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore

@@ -1,0 +1,84 @@
+[project]
+name = "quantum-forge-rag"
+version = "0.1.0"
+description = "RAG Bot for QuantumForge"
+readme = "README.md"
+requires-python = ">=3.12, <3.13"
+dependencies = [
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.4.0",
+    "python-dotenv>=1.0.0",
+    "langchain>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-huggingface>=0.1.0",
+    "langchain-google-genai>=2.0.0",
+    "sentence-transformers>=3.0.0",
+    "chromadb>=0.5.0",
+    "aiogram>=3.13.0",
+    "redis>=5.0.0",
+    "loguru>=0.7.0",
+    "tenacity>=9.0.0",
+    "unstructured>=0.16.0",
+    "markdown>=3.7",
+    "torch>=2.0.0",
+    "numpy>=1.26.0",
+    "einops>=0.7.0",
+    "google-genai>=0.6.0",
+    "langchain-experimental>=0.4.1",
+    "ragatouille>=0.0.9.post2",
+    "trafilatura>=1.12.0",
+    "tqdm>=4.66.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.5.0",
+    "types-tqdm>=4.66.0",
+    "types-tqdm>=4.66.0",
+    "ty>=0.0.10",
+]
+
+[tool.uv]
+# Optimization: Prefer CPU version of PyTorch
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN",    # Type annotations
+    "D",      # Docstrings
+    "COM",    # Trailing commas
+    "ISC",    # Implicit string concatenation
+    "CPY",    # Copyright headers
+    "PT",     # Pytest
+    "DJ",     # Django
+    "NPY",    # Numpy
+    "PD",     # Pandas
+    "ERA",    # Commented out code
+    "FIX",    # Fixme
+    "TD",     # Todo
+    "TRY003", # Long exception messages
+    "EM101",  # Exception string literals
+    "FBT",    # Boolean positional args
+    "PLW0603", # Global statement
+    "PLC0415", # Import not at top level (needed for multiprocessing)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/data_gen/*.py" = ["T201", "INP001"] 
+
+[tool.ty.rules]
+unused-ignore-comment = "warn"
+redundant-cast = "ignore"
+possibly-missing-attribute = "error"
+possibly-missing-import = "error"

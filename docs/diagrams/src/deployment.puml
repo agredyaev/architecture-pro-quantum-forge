@@ -1,0 +1,46 @@
+@startuml deployment
+!pragma layout smetana
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+!include ../p3-c4-styles.puml
+
+skinparam backgroundColor #020617
+
+title Deployment Diagram (Local Development Environment)
+
+' === Tags ===
+AddElementTag("Core", $borderColor=C_EMERALD400, $fontColor=C_TEXT)
+AddRelTag("MainFlow", $lineColor=C_EMERALD400, $textColor=C_MUTED)
+
+' === Override C4 Deployment_Node styles ===
+UpdateElementStyle("node", $bgColor=C_SURF, $fontColor=C_TEXT, $borderColor=C_LINE)
+
+Deployment_Node(os, "macOS Host", "Apple Silicon", "Developer Machine") {
+    
+    Deployment_Node(docker, "Docker Engine", "24.x+", "Container Runtime") {
+        
+        Container(app_container, "App Container", "Python 3.12", "Runs main.py (Aiogram + RAG)", $tags="Core")
+        Container(etl_container, "ETL Container", "Python 3.12", "Runs update_index.py (incremental ingest)")
+        Container(redis_container, "Redis", "7.2-alpine", "Cache & FSM Storage")
+    }
+    
+    Deployment_Node(fs, "File System", "APFS") {
+        ContainerDb(vol_chroma, "Directory: data/chroma_storage", "Disk", "Persists vector index")
+        ContainerDb(vol_colbert, "Directory: data/colbert_index", "Disk", "Persists ColBERT index")
+        ContainerDb(vol_raw, "Directory: data/raw", "Disk", "Raw source documents")
+        ContainerDb(vol_processed, "Directory: data/processed", "Disk", "Processed knowledge base")
+    }
+    
+    ' === Relationships ===
+    Rel(app_container, redis_container, "Reads/Writes", "TCP:6379", $tags="MainFlow")
+    
+    Rel(app_container, vol_chroma, "Persists Data", "File I/O")
+    Rel(app_container, vol_colbert, "Persists Data", "File I/O")
+    Rel(app_container, vol_processed, "Reads Source", "File I/O")
+    
+    Rel(etl_container, vol_raw, "Reads Source", "File I/O")
+    Rel(etl_container, vol_processed, "Writes Processed", "File I/O")
+    Rel(etl_container, vol_chroma, "Persists Data", "File I/O")
+    Rel(etl_container, vol_colbert, "Persists Data", "File I/O")
+}
+
+@enduml

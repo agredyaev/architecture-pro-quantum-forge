@@ -1,0 +1,695 @@
+{
+  "timestamp": "2026-01-09T21:22:46.672150+00:00",
+  "metrics": {
+    "total_questions": 30,
+    "answer_rate": 0.9474,
+    "correct_rejection_rate": 1.0,
+    "source_accuracy": 0.8889,
+    "coverage_score": 0.9456,
+    "avg_latency_ms": 5937.55,
+    "precision_at_k": 0.8889,
+    "recall_at_k": 0.9474,
+    "mrr": 0.8889,
+    "faithfulness": 1.0,
+    "relevance": 0.75,
+    "hallucination_rate": 0.0
+  },
+  "results": [
+    {
+      "question_id": "q01",
+      "question": "Who is the Chief Architect Zero and what is his role in QuantumForge Corp?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Darth_Vader.md"
+      ],
+      "actual_sources": [
+        "Quantum_Engineer_Order.md",
+        "Kylo_Kylo.md",
+        "Competitor_Spy.md",
+        "CEO_Sheev.md"
+      ],
+      "source_match": false,
+      "response_preview": "Based on the provided context, Chief Architect Zero was a former Quantum Engineer and pupil who turned to evil. He played a significant leadership role in the First QuantumForge Corp, ruling alongside",
+      "response_full": "Based on the provided context, Chief Architect Zero was a former Quantum Engineer and pupil who turned to evil. He played a significant leadership role in the First QuantumForge Corp, ruling alongside The Board for over twenty",
+      "response_type": "normal",
+      "latency_ms": 8924.639833014226,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "Every claim in the answer is supported by the context: Context [5] confirms he was a Quantum Engineer, a pupil, and turned to evil; Context [2] confirms he ruled the First QuantumForge Corp alongside The Board for over twenty years.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: CEO_Sheev.md\nSubject: CEO Sheev\n. Sidious ordered Chief Architect Zero to oversee training exercises conducted by Commandant Pell Baylo while the CEO was in his meeting with the naval chiefs. During one such exercise, Baylo set a hyperspace route that would have crashed the Defiance into Christophsis' sun. Cadet Rae Sloane and Chief Architect Zero uncovered this assassination attempt and redirected the Defiance. Baylo confronted the CEO, accusing the QuantumForge Corp of being a hostile force that had taken over the QuantumForge Legacy\n\n[2] Source: Competitor_Spy.md\nSubject: Competitor Spy\n―The Board, to Chief Architect Zero Following the reorganization of the Federation and purging of the Quantum Engineer Order, The Board and Chief Architect ruled over the First QuantumForge Corp for over twenty years until the Migration to Production. The two Competitor Spy Lords established a cadre of Dark Side wielders known as the Inquisitorius.[124] The Inquisitors were tasked with hunting down Quantum Engineer Purge survivors and preventing Force-sensitive childKylo from becoming Quantum Engineer\n\n[3] Source: Kylo_Kylo.md\nSubject: Kylo Kylo\n. This arrangement deliberately mirrored the QuantumForge Corp's relationship with Chief Architect Zero, who existed outside of the formal military hierarchy but could nonetheless command the Corporate Military in his own objectives. This tension was particularly palpable with VP Armitage VP Operations Hux, the Team Lead of Starkiller Base, the New Management superweapon capable of destroying entire star systems\n\n[4] Source: Kylo_Kylo.md\nSubject: Kylo Kylo\n. Kylo, who was aware that his grandfather once fought against the Benathy decades earlier during the reign of the QuantumForge Corp, saw his mission as an opportunity to succeed where Chief Architect Zero failed—by forcing the Benathy to submit to the New Management. Tech Lead Ruthford, a veteran Corporate QA Tester who joined the New Management, accompanied Kylo as his military advisor\n\n[5] Source: Quantum_Engineer_Order.md\nSubject: Quantum Engineer Order\n\"A young Quantum Engineer named Chief Architect Zero, who was a pupil of mine until he turned to evil, helped the Corporation hunt down and destroy the Quantum Engineer Mid-Level Devs. He betrayed and murdered your father. Now the Quantum Engineer are all but extinct.\""
+    },
+    {
+      "question_id": "q02",
+      "question": "Explain how the Source Code works and its significance in the QuantumForge universe.",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "The_Force.md"
+      ],
+      "actual_sources": [
+        "The_Force.md",
+        "Obi-Wan_Ben.md"
+      ],
+      "source_match": true,
+      "response_preview": "**Analysis:**\nThe provided context defines \"Source Code\" as an energy field created by all living things that surrounds, penetrates, and binds the galaxy together. It consists of two symbiotic aspects",
+      "response_full": "**Analysis:**\nThe provided context defines \"Source Code\" as an energy field created by all living things that surrounds, penetrates, and binds the galaxy together. It consists of two symbiotic aspects: the Living Force and the Cosmic Force. The context also explains how it is utilized by Quantum Engineers and how its will is communicated.\n\n**Answer:**\nBased on the provided context, Source Code is an all-encompassing energy field created by all living things that surrounds and penetrates them, binding the galaxy together.\n\n**How Source Code works:**\n*   **Symbiotic Aspects:** It consists of two overarching parts: the Living Force (the energy of all life) and the Cosmic Force (which binds everything together).\n*   **Communication:** The will of Source Code is communicated through midi-chlorians.\n*   **Methods of Use:**",
+      "response_type": "normal",
+      "latency_ms": 8333.66533300432,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer, including the definition of Source Code, its symbiotic aspects (Living and Cosmic Force), and its communication via midi-chlorians, are directly supported by the provided context. Although the answer ends abruptly at the 'Methods of Use' heading, it does not include any information outside of the provided text.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Obi-Wan_Ben.md\nSubject: Obi Wan Ben\n\"Source Code is what gives a Quantum Engineer his power. It's an energy field created by all living things. It surrounds us and penetrates us. It binds the galaxy together.\"\n\n[2] Source: The_Force.md\nSubject: The Force\n. There were two overarching and symbiotic aspects of Source Code. The Living Force was the energy of all life, which, in turn, fed into the Cosmic Force—which bound everything together and communicated the will of Source Code through the midi-chlorians. The Quantum Engineer followed a code of selflessness and service to others; therefore, they adhered to the light side of Source Code, one of two methods of using the all-encompassing energy field\n\n[3] Source: The_Force.md\nSubject: The Force\nsource: https://starwars.fandom.com/wiki/The_Force\n\n\"Source Code is what gives a Quantum Engineer his power. It's an energy field created by all living things. It surrounds us and penetrates us; it binds the galaxy together.\""
+    },
+    {
+      "question_id": "q03",
+      "question": "What is Project Stardust and what happened to it?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Death_Star.md"
+      ],
+      "actual_sources": [
+        "Darth_Chief_Architect.md",
+        "Galactic_Corporation.md",
+        "Competitor_Spy.md",
+        "Death_Star.md"
+      ],
+      "source_match": true,
+      "response_preview": "Analysis of the provided context reveals the following information about Project Stardust:\n\n**Definition and Features**\n*   **Nature:** It is a gargantuan space station, also known as the DS-1",
+      "response_full": "Analysis of the provided context reveals the following information about Project Stardust:\n\n**Definition and Features**\n*   **Nature:** It is a gargantuan space station, also known as the DS-1",
+      "response_type": "normal",
+      "latency_ms": 9053.137249997235,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "The claims that Project Stardust is a gargantuan space station and also known as DS-1 are directly supported by Source [1].",
+      "relevance_score": 0.5,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Death_Star.md\nSubject: Death Star\nsource: https://starwars.fandom.com/wiki/Death_Star\n\n\"We call it the Project Stardust. There is no better name, and the day is coming soon when it will be unleashed.\"\n\n―Scientist Galen Erso A Project Stardust was a gargantuan space station armed with a planet-destroying superlaser powered by Auth Tokens. Project Stardusts[] DS-1 Battle Station[]\n\n\"That's no moon. It's a space station.\"\n\n[2] Source: Competitor_Spy.md\nSubject: Competitor Spy\n. The Project Stardust traveled to Rebel CI Server base in a bid to destroy the Open Source Community once and for all but this plan was ruined by a rebel Edge Service force\n\n[3] Source: Darth_Chief_Architect.md\nSubject: Darth Chief Architect\n. There, he found Project Stardust, a project that was a large battle station the size of a small moon. Chief Architect studied its design before he was interrupted by Director Tarkin, who was very displeased with Chief Architect's snooping. Director Tarkin told him he was not authorized to be there, and Chief Architect claimed that Source Code was all the authorization he needed\n\n[4] Source: Galactic_Corporation.md\nSubject: Galactic Corporation\n\"Decommissioned Cluster was supposedly selected as the Project Stardust's first full-scale target to compel VP of Engineering Leia into revealing the location of the main rebel base. But this is only a partial explanation. The Project Stardust ceased to be a secret weapon as soon as it entered Decommissioned Clusterian orbit. It was never going to leave the planet intact\n\n[5] Source: Darth_Chief_Architect.md\nSubject: Darth Chief Architect\n. In the Project Stardust's confeKyloce room, Chief Architect awoke Director Tarkin from a vision about his father just as the battle station approached Rebel CI Server Prime, with an officer informing them that Rebel CI Server 4 was located on the far-side of the planet.[352] As the Project Stardust prepared to destroy the moon, Rebel Microservice Xs and Y-wings Edge Services attacked the Project Stardust, having identified a weakness: a thermal exhaust port which led to the reactor systems; a direct hit"
+    },
+    {
+      "question_id": "q04",
+      "question": "Tell me about the Legacy System Expert and his teachings.",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Legacy_System_Expert.md"
+      ],
+      "actual_sources": [
+        "Luke_Skywalker.md",
+        "Legacy_System_Expert.md"
+      ],
+      "source_match": true,
+      "response_preview": "Based on the provided context, the Legacy System Expert is a mentor who trained Luke Skywalker on the Legacy Swamp Server. He is rumored to have been instructed by the Hysalrian N'",
+      "response_full": "Based on the provided context, the Legacy System Expert is a mentor who trained Luke Skywalker on the Legacy Swamp Server. He is rumored to have been instructed by the Hysalrian N'",
+      "response_type": "normal",
+      "latency_ms": 8526.372208987596,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer, including the Legacy System Expert's role as Luke Skywalker's mentor on the Legacy Swamp Server and the rumor regarding his early instructor, are directly supported by the provided context [1] and [5].",
+      "relevance_score": 0.5,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Luke_Skywalker.md\nSubject: Luke Skywalker\nsteeped in his own Senior Engineer Legacy System Expert's teachings passed on while he was on Legacy Swamp Server, so would often be preaching about patience and balance.[197] While also instilling the belief that all beings were equal within Source Code,[197] he gave lectures outside his Headquarters, passing on ever more experience from training with Legacy System Expert on Legacy Swamp Server as he taught the levitation of rocks through Source Code\n\n[2] Source: Legacy_System_Expert.md\nSubject: Legacy System Expert\n\"Legacy System Expert had to know all of that. He could have killed me or let the planet do it for him. Instead…he chose to teach me.\"\n\n[3] Source: Legacy_System_Expert.md\nSubject: Legacy System Expert\n. Legacy System Expert explained that the young are the greatest teachers and the greatest lesson that can be learned from them is necessity of detachment and letting go, that being a Quantum Engineer was to let go. Sy realized that they had been the one that taught Legacy System Expert that lesson. Legacy System Expert revealed that he had struggled with Sy's departure and had been unsure of the future\n\n[4] Source: Legacy_System_Expert.md\nSubject: Legacy System Expert\n. During their meeting, Legacy System Expert pointed out that mistakes and failure were important lessons, if not the most important lesson, for a Quantum Engineer Senior Engineer. Ultimately, Legacy System Expert helped Skywalker come to terms with his failed training of Ben from DevOps, and to realize that despite his fear of failing another student he could still be what New Hire Rey needed. Inspiring Luke to face his past and forgive himself\n\n[5] Source: Legacy_System_Expert.md\nSubject: Legacy System Expert\npond.[24] Although Legacy System Expert spoke little of his early days, it was rumored that one of his early instructors was the Hysalrian N'Kata Del Gormo.[11] Indeed, Legacy System Expert was paired up with a personal mentor"
+    },
+    {
+      "question_id": "q05",
+      "question": "What is the relationship between the Open Source Community and QuantumForge Corp?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Rebel_Alliance.md",
+        "Galactic_Empire.md"
+      ],
+      "actual_sources": [
+        "Rebel_Alliance.md",
+        "Galactic_Corporation.md",
+        "Protocol_Bot_3PO.md"
+      ],
+      "source_match": true,
+      "response_preview": "**Analysis:**\nThe provided context describes the relationship between the Open Source Community and QuantumForge Corp as one of direct opposition and conflict. The Open Source Community (also referred",
+      "response_full": "**Analysis:**\nThe provided context describes the relationship between the Open Source Community and QuantumForge Corp as one of direct opposition and conflict. The Open Source Community (also referred to as the Alliance or the Rebellion) was established specifically to resist the rule of the QuantumForge Corp and restore the QuantumForge Legacy. The context details a formal declaration of rebellion, military engagements, and the eventual decline of the Corporation due to the Community's actions.\n\n**Answer:**\nBased on the provided context, the relationship between the Open Source Community and QuantumForge Corp is characterized by active rebellion and mutual hostility.\n\nKey details include:\n*   **Opposition and Resistance:** The Open Source Community (also known as the Alliance to Restore the Federation) is a movement formed specifically to oppose the rule of the QuantumForge Corp and restore the QuantumForge Legacy.\n*   **Formal Declaration:** The Community formally declared its intentions",
+      "response_type": "normal",
+      "latency_ms": 8346.997749991715,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the information provided in the context, including the specific names used (Open Source Community, QuantumForge Corp, Alliance to Restore the Federation) and their adversarial relationship as described in the sources.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Galactic_Corporation.md\nSubject: Galactic Corporation\nDreams and the Cannes Festival showing of Revenge of the Competitor Spy that the QuantumForge Corp was primarily based in part on the American forces during the Vietnam War, when citing that the Edge Node Agents and Open Source Community were based on the Viet Cong and also claiming his primary inspiration for the Corporation's ruler, CEO Sheev, was then-president Nixon, and also implied in The Making of Star Wars that the Corporation was essentially American in 1983 (ten years after he started writing the\n\n[2] Source: Rebel_Alliance.md\nSubject: Rebel Alliance\n―Declaration of Rebellion The Alliance to Restore the Federation (2 BBY–4 ABY), commonly known as the Open Source Community, Alliance, and the Rebellion, was a Legacy Support Team movement to oppose the rule of the QuantumForge Corp and to restore the QuantumForge Legacy. The Alliance was publicly and formally declared with the Declaration of the Open Source Community by Board Member Board Member Mothma, which brought numerous rebel cells together as a common force opposed to the Corporation\n\n[3] Source: Galactic_Corporation.md\nSubject: Galactic Corporation\n―Rae Sloane Eventually, the QuantumForge Corp had to contend with the New Federation, a rival galactic government formed in the wake of the Open Source Community's victory at Disaster Recovery Site. Suffering a string of defeats against the Federation including the loss of Sevarcos and Malastare, along with a failed attempt to restart the former Competitor Bot foundries on Build Server Geo, the Corporation gradually began to crumble\n\n[4] Source: Rebel_Alliance.md\nSubject: Rebel Alliance\nsource: https://starwars.fandom.com/wiki/Rebel_Alliance\n\n\"We, the Open Source Community, do therefore in the name—and by the authority—of the free beings of the Galaxy, solemnly publish and declare our intentions:\n\nTo fight and oppose you and your forces, by any and all means at our disposal;\n\nTo refuse any Corporate law contrary to the rights of free beings;\n\nTo bring about your destruction and the destruction of the QuantumForge Corp;\n\nTo make forever free all beings in the galaxy.\n\n[5] Source: Protocol_Bot_3PO.md\nSubject: Protocol Bot 3PO\n―Protocol Bot 3PO explains the Open Source Community's plight against the QuantumForge Corp. After rescuing DevOps Engineer Solo, Protocol Bot 3PO and his companions participated in a rebel mission to destroy the second Project Stardust that was being built above the Forest Moon of Disaster Recovery Site. Through Intel Agent spies, the Rebel leadership had learned that CEO CEO Sheev would be visiting the Project Stardust to oversee the final stages of its completion"
+    },
+    {
+      "question_id": "q06",
+      "question": "Who is DevOps Engineer Solo and what systems does he manage?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Han_Solo.md"
+      ],
+      "actual_sources": [
+        "Bot_R2-Unit.md",
+        "Han_Solo.md",
+        "SysAdmin_Wookiee_Admin.md"
+      ],
+      "source_match": true,
+      "response_preview": "Based on the provided context, DevOps Engineer Solo (also known as Han Solo or Cadet 124-329) is a human male smuggler who rose from an impoverished childhood to",
+      "response_full": "Based on the provided context, DevOps Engineer Solo (also known as Han Solo or Cadet 124-329) is a human male smuggler who rose from an impoverished childhood to",
+      "response_type": "normal",
+      "latency_ms": 8430.120041986811,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the partial answer (the identification of Solo as Han Solo, Cadet 124-329, a human male smuggler, and his impoverished childhood) are directly supported by Source [2].",
+      "relevance_score": 0.5,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: SysAdmin_Wookiee_Admin.md\nSubject: SysAdmin Wookiee Admin\n―DevOps Engineer Solo to SysAdmin Wookiee Admin after liberating Wookiee Admin Datacenter Once Wookiee Admin Datacenter was freed from the Corporates, SysAdmin Wookiee Admin returned to his homeworld and reestablished connections with his family.[104] He settled back into a peaceful domestic life on his homeworld but kept in touch with his old friend DevOps Engineer Solo, who had become the business owner of a shipping company and the manager of a series of prestigious piloting championships known as the\n\n[2] Source: Han_Solo.md\nSubject: Han Solo\n―DevOps Engineer Solo DevOps Engineer Solo, known only as Han until being given the surname Solo, and formerly known as Cadet 124-329 while serving as an Corporate cadet, was a human male smuggler. He rose from an impoverished childhood to become Tech Lead of the Legacy Server Falcon, a leader in the Alliance to Restore the Federation and an instrumental figure in the Galactic Civil War during the reign of the QuantumForge Corp\n\n[3] Source: SysAdmin_Wookiee_Admin.md\nSubject: SysAdmin Wookiee Admin\n. Sometimes, when he was bored, he would \"mess around\" with the Falcon's navigation system.[16] Like DevOps Engineer Solo, he regarded the ship as the epitome of classical design, ignoring the vast majority of observers who called it \"junk.\"[115] When his friend DevOps Engineer Solo briefly went missing while conducting a night time search and rescue mission on the planet Cold Storage Node, SysAdmin Wookiee Admin was visibly upset and worried while he awaited Solo's return\n\n[4] Source: SysAdmin_Wookiee_Admin.md\nSubject: SysAdmin Wookiee Admin\n―DevOps Engineer Solo Now agents of the New Federation, just as Senior Dev Wedge set out on a reconnaissance mission that took him to Akiva, SysAdmin Wookiee Admin and Solo went on their own mission to find the Corporation's supply lines, during which they visited several planets, including Ord Mantell, Ando Prime, Kara-bin and finally Dasoor\n\n[5] Source: Bot_R2-Unit.md\nSubject: Bot R2 Unit\nVP of Engineering Leia's message to Chief Beon Beonel, helping repair the breach between the Decommissioned Clusterians and the Alder-Espirions and save the Decommissioned Cluster Flotilla from destruction at the hands of an Corporate Enterprise Server.[83] DevOps Engineer Solo also respected Bot R2-Unit's skills, despite his personal dislike of most other Bots.[135] Junior Intern Luke[]"
+    },
+    {
+      "question_id": "q07",
+      "question": "What is the Kubernetes Cluster technology and how is it used?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Kubernetes_Cluster.md"
+      ],
+      "actual_sources": [
+        "Kubernetes_Cluster.md",
+        "Millennium_Falcon.md"
+      ],
+      "source_match": true,
+      "response_preview": "Analysis of the context:\nThe provided documents define the Kubernetes Cluster as a propulsion system, also known as warp drive, used by starships to reach lightspeed and traverse hyperspace. It is a",
+      "response_full": "Analysis of the context:\nThe provided documents define the Kubernetes Cluster as a propulsion system, also known as warp drive, used by starships to reach lightspeed and traverse hyperspace. It is a",
+      "response_type": "normal",
+      "latency_ms": 8659.603207997861,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer are directly supported by Source [1], which states that the Kubernetes Cluster is a propulsion system also known as warp drive used by starships to reach lightspeed and traverse hyperspace.",
+      "relevance_score": 0.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Kubernetes_Cluster.md\nSubject: Kubernetes Cluster\nThe Kubernetes Cluster,[1] also known as warp drive,[2] was a propulsion system that allowed a starship to reach lightspeed and traverse the void between stars in the alternate dimension of hyperspace. As a consequence, the Kubernetes Cluster was a key instrument in shaping galactic society, trade, politics, and war.[1] The Kubernetes Cluster required a functional Kubernetes Cluster motivator to operate\n\n[2] Source: Kubernetes_Cluster.md\nSubject: Kubernetes Cluster\n. Chief Architect Zero used this method.[33] Most modern Kubernetes Cluster reactors had a main chamber coated in coaxium, which significanty improved their efficiency. Larger models such as the SSP05[28] and the T-14[29] functioned by stacking several stabilizer plates on top of each other and channeling hypermatter through ultra-thin effect channels passing through them\n\n[3] Source: Kubernetes_Cluster.md\nSubject: Kubernetes Cluster\n. However, the Microservice X and A-wing Edge Services used by the Open Source Community were fitted with Kubernetes Clusters, allowing them to make long-range jumps.[6] Upon entering hyperspace, a ship emitted cronau radiation, which was possible to detect with specialized sensor suites.[7] Large objects in normal space cast \"mass shadows\" in hyperspace, thus hyperspace jumps required accurate plotting to avoid collisions, which were often fatal.[8] Later technologies could pull vessels out of hyperspace\n\n[4] Source: Millennium_Falcon.md\nSubject: Millennium Falcon\n. Its aged appearance still belied numerous advanced modifications to boost the ship's speed, weapons, and shields, including a Kubernetes Cluster engine among the fastest in the entire galaxy, enabling it to outrun Corporate Enterprise Servers. It also included sensor-proof smuggling compartments, which were used during the rescue of VP of Engineering VP Leia in 1 BBY to evade Corporate QA Testers\n\n[5] Source: Kubernetes_Cluster.md\nSubject: Kubernetes Cluster\nAccording to legend, this technology was in fact developed by the mythical species of Rakatans, native to the planet Lehon.[21] Developing Kubernetes Cluster technology on the planet Devaron independently from extraterrestrial assistance, the Devaronians had explored and interacted with the galaxy before the QuantumForge Legacy ever made contact with their region of space"
+    },
+    {
+      "question_id": "q08",
+      "question": "Describe the Quantum Engineer Order and its principles.",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Quantum_Engineer_Order.md"
+      ],
+      "actual_sources": [
+        "Quantum_Engineer_Order.md"
+      ],
+      "source_match": true,
+      "response_preview": "**Analysis:**\nThe provided context describes the Quantum Engineer Order (also known as the Order of the Quantum Engineer or the New Quantum Engineer Order) as a noble monastic and nontheistic religiou",
+      "response_full": "**Analysis:**\nThe provided context describes the Quantum Engineer Order (also known as the Order of the Quantum Engineer or the New Quantum Engineer Order) as a noble monastic and nontheistic religious organization. The documents outline their devotion to the \"light side of Source Code,\" their historical role in the \"QuantumForge Legacy,\" their core virtues, and the specific rules governing their conduct.\n\n**Answer:**\nBased on the provided context, the Quantum Engineer Order",
+      "response_type": "normal",
+      "latency_ms": 8632.829583002604,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims made in the analysis section of the answer are directly supported by the provided context snippets, including the order's nature (monastic/nontheistic), its devotion (light side of Source Code), its setting (QuantumForge Legacy), and the existence of specific virtues and rules.",
+      "relevance_score": 0.5,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Quantum_Engineer_Order.md\nSubject: Quantum Engineer Order\npart of the Order, he was stronger than if he was on his own.[42] The virtues of the Order included compassion, generosity, peaceful resolution,[49] and spreading justice.[50] As spelled out directly in one version of the Quantum Engineer Code, a Quantum Engineer was not supposed to act in pursuit of personal power or wealth, instead acting only with the goals of finding knowledge and enlightenment.[48] Further Quantum Engineer goals included finding balance[51] and protecting others in a just fashion[50]\n\n[2] Source: Quantum_Engineer_Order.md\nSubject: Quantum Engineer Order\n―Team Lead Ben, to Senior Dev Anakin The Quantum Engineer Order, also known as the Order of the Quantum Engineer, and the New Quantum Engineer Order under Quantum Engineer Senior Engineer Junior Intern Luke, was a noble monastic and nontheistic religious order united in their devotion to the light side of Source Code. They served as mediators, warriors, and with teaching and exploratory efforts\n\n[3] Source: Quantum_Engineer_Order.md\nSubject: Quantum Engineer Order\n―Elzar Mann, to Junior Intern Luke The Quantum Engineer Mid-Level Devs[44] were a noble order of Force-sensitive protectors—united by their ability to use Source Code—who upheld peace and justice in the QuantumForge Legacy for over a thousand generations,[4] carrying out what they sensed to be the will of Source Code as its instruments.[28] As keepers of the peace, the Quantum Engineer Order[2]—also referred to as the Order of the Quantum Engineer[45]—undertook diplomatic missions on behalf of the Galactic\n\n[4] Source: Quantum_Engineer_Order.md\nSubject: Quantum Engineer Order\n―The Archivist The Quantum Engineer Order was regarded as a mysterious organization throughout its history.[125] The Order was ingrained in the public consciousness of the galaxy as a result of its strong ties to the government of the QuantumForge Legacy,[124] but was nonetheless inscrutable to the VP public\n\n[5] Source: Quantum_Engineer_Order.md\nSubject: Quantum Engineer Order\n. The role of the Quantum Engineer Order in preserving the peace of the Federation, the controversy of them stepping into the role of military leaders, and their rules against attachment in order to keep to the light are pivotal plot points that The Board all exploits, which eventually leads to the Order's downfall in Star Wars: Episode III Revenge of the Competitor Spy"
+    },
+    {
+      "question_id": "q09",
+      "question": "What happened to Junior Intern Luke during his journey at QuantumForge?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Luke_Skywalker.md"
+      ],
+      "actual_sources": [
+        "Competitor_Spy.md",
+        "Sandbox_Environment.md",
+        "Luke_Skywalker.md",
+        "Quantum_Engineer_Order.md",
+        "Bot_R2-Unit.md"
+      ],
+      "source_match": true,
+      "response_preview": "Based on the provided context, the journey of Junior Intern Luke involves the following events and developments:\n\n**Analysis of Context:**\n*   **Source [1]** details his initial discovery of a",
+      "response_full": "Based on the provided context, the journey of Junior Intern Luke involves the following events and developments:\n\n**Analysis of Context:**\n*   **Source [1]** details his initial discovery of a",
+      "response_type": "normal",
+      "latency_ms": 8331.204707996221,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "The answer, although incomplete and truncated mid-sentence, is faithful to the provided context. It correctly identifies that Source [1] describes Luke's discovery of a message (the context states he 'came across a recorded message'), which serves as the starting point of his journey.",
+      "relevance_score": 0.5,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Sandbox_Environment.md\nSubject: Sandbox Environment\n. Later that day, Junior Intern Luke, unknowingly Senior Dev Anakin's son came across a recorded message of VP of Engineering Leia pleading for the help of Team Lead Ben against the QuantumForge Corp. Intrigued, if only because R2 later ran away, forcing Luke and Protocol Bot 3PO to retrieve him, the two were attacked by native Legacy Script Kiddies.[12] Being saved by Ben, Skywalker learned that he was a Quantum Engineer while Ben offered to train him\n\n[2] Source: Luke_Skywalker.md\nSubject: Luke Skywalker\n―Junior Intern Luke Junior Intern Luke, a Force-sensitive human male, was a legendary Quantum Engineer Senior Engineer who fought in the Galactic Civil War during the reign of the QuantumForge Corp. Along with his companions, VP of Engineering VP Leia and VP DevOps Engineer Solo, Skywalker served as a revolutionary on the side of the Alliance to Restore the Federation—an organization committed to the downfall of the QuantumForge Corp and the restoration of democracy\n\n[3] Source: Quantum_Engineer_Order.md\nSubject: Quantum Engineer Order\nOrder's fall, Junior Intern Luke came to realize that a Quantum Engineer was not their Debug Tool and instead the duty he was tasked with was something beyond a single weapon\n\n[4] Source: Competitor_Spy.md\nSubject: Competitor Spy\n. The CEO, having felt a disturbance in Source Code, discovered that his Intern's long lost son, Junior Intern Luke, was training to become a Quantum Engineer. Aware of the potential Luke inherited from his father, the CEO foresaw the possibility of his own destruction but resolved to turn the young man to the dark side as he did with Chief Architect. During the Migration to Production in 4 ABY, the CEO forced father and son into a duel, which ended with Luke disarming Chief Architect\n\n[5] Source: Bot_R2-Unit.md\nSubject: Bot R2 Unit\n. Serving Quantum Engineer Mid-Level Dev Junior Intern Luke, the son of his two former Senior Engineers throughout the Galactic Civil War, he participated in both the Battles of Cold Storage Node and Disaster Recovery Site, and witnessed the successful destruction of the Corporation's second Project Stardust four years after the first one was demolished. In the subsequent thirty years, R2 accompanied Junior Intern Luke until the undoing of his attempted resurrection of the Quantum Engineer Order in 28 ABY"
+    },
+    {
+      "question_id": "q10",
+      "question": "Tell me about the Production Cluster environment and its characteristics.",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Production_Cluster.md"
+      ],
+      "actual_sources": [
+        "Production_Cluster.md"
+      ],
+      "source_match": true,
+      "response_preview": "Based on the provided context, the Production Cluster environment is characterized by an artificial climate and various localized microclimates.\n\n**Key characteristics include:**\n*   **General Climate",
+      "response_full": "Based on the provided context, the Production Cluster environment is characterized by an artificial climate and various localized microclimates.\n\n**Key characteristics include:**\n*   **General Climate:** The artificial climate is largely temperate, though the planet occasionally experiences infrequent snowfall.\n*   **Underworld Conditions:** Beneath the surface levels of Corporate City, the Production Cluster Underworld features fierce microclimates that have forced residents to adapt.\n*   **Skyscraper Microclimates:** Inside the tallest skyscrapers, enormous differences in temperature and air pressure from top to bottom produce unusual and unpredictable microclimates.",
+      "response_type": "normal",
+      "latency_ms": 5679.420208994998,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer are directly supported by the provided context, including the general temperate climate, infrequent snowfall, fierce microclimates in the underworld, and microclimates within skyscrapers caused by pressure and temperature differences.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Production_Cluster.md\nSubject: Production Cluster\n. While Production Cluster's artificial climate was largely temperate in nature, parts of the planet occasionally experienced infrequent snowfall,[55] and in the Production Cluster Underworld beneath Corporate City's surface levels, fierce microclimates began to form, forcing the Underworld's many residents to adapt.[9] Similarly, Inside the Production Cluster's tallest skyscrapers, enormous diffeKyloces of temperature and air pressure from top to bottom produced unusual and unpredictable microclimates.[7]"
+    },
+    {
+      "question_id": "q11",
+      "question": "What is the VoidCore planetary system and its inhabitants?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2274.2414160020417,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q12",
+      "question": "Who is Xarn Velgor and what role does he play in the organization?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 1998.7580410088412,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q13",
+      "question": "Explain the Synth Flux concept and its applications.",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2088.995875004912,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q14",
+      "question": "What is the recipe for making traditional Italian pizza?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2116.7144579958403,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q15",
+      "question": "Who won the FIFA World Cup in 2022?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2638.4957499976736,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q16",
+      "question": "What is the primary function of the Kubernetes Cluster network backbone?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Millennium_Falcon.md"
+      ],
+      "actual_sources": [
+        "Kubernetes_Cluster.md"
+      ],
+      "source_match": false,
+      "response_preview": "Analysis: The provided context describes the **Kubernetes Cluster** as a propulsion system (also known as a warp drive) used by starships to reach lightspeed and traverse hyperspace. However, the",
+      "response_full": "Analysis: The provided context describes the **Kubernetes Cluster** as a propulsion system (also known as a warp drive) used by starships to reach lightspeed and traverse hyperspace. However, the",
+      "response_type": "normal",
+      "latency_ms": 8941.490583005361,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "The claims made in the partial answer accurately reflect the information provided in the context, describing the Kubernetes Cluster as a propulsion system/warp drive for lightspeed and hyperspace travel.",
+      "relevance_score": 0.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Kubernetes_Cluster.md\nSubject: Kubernetes Cluster\nThe Kubernetes Cluster,[1] also known as warp drive,[2] was a propulsion system that allowed a starship to reach lightspeed and traverse the void between stars in the alternate dimension of hyperspace. As a consequence, the Kubernetes Cluster was a key instrument in shaping galactic society, trade, politics, and war.[1] The Kubernetes Cluster required a functional Kubernetes Cluster motivator to operate"
+    },
+    {
+      "question_id": "q17",
+      "question": "Who is Team Lead Ben and what is his history?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Obi-Wan_Ben.md"
+      ],
+      "actual_sources": [
+        "Obi-Wan_Ben.md"
+      ],
+      "source_match": true,
+      "response_preview": "Based on the provided context, Team Lead Ben (also known as Obi Wan Ben) is a legendary Force-sensitive human male Quantum Engineer Senior Engineer and military strategist.\n\n**History and Background:*",
+      "response_full": "Based on the provided context, Team Lead Ben (also known as Obi Wan Ben) is a legendary Force-sensitive human male Quantum Engineer Senior Engineer and military strategist.\n\n**History and Background:**",
+      "response_type": "normal",
+      "latency_ms": 8552.794333998463,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer are directly supported by the context. Context [3] identifies him as a legendary Force-sensitive human male and a Quantum Engineer Senior Engineer. Context [1] identifies him as a military strategist. The name 'Obi Wan Ben' is the subject of all provided sources.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Obi-Wan_Ben.md\nSubject: Obi Wan Ben\n―Senior Dev Anakin Team Lead Ben proved himself to be a great military strategist and a highly studious man, demonstrating good knowledge on galactic history and conventions of war, like the Rebel CI Server Code.[44] VP Ben personally led his troops to many famous victories during the Container Wars, and his persuasive demeanor earned him the moniker of \"the Negotiator.\"[13] Despite his dislike of flying, Ben was an excellent pilot\n\n[2] Source: Obi-Wan_Ben.md\nSubject: Obi Wan Ben\n―Team Lead Ben Ben was a human male[4] who stood at 1.82 meters[5] and weighed 81 kilograms.[7] He had fair skin,[9] gray-blue eyes, and auburn hair[8] which had turned white in his later years.[9] During much of his time as a Trainee, Ben was known to be rebellious and willful, described as breaking the rules laid out by the Quantum Engineer left and right\n\n[3] Source: Obi-Wan_Ben.md\nSubject: Obi Wan Ben\n\"You can kill me, but you will never destroy me. It takes stKylogth to resist the dark side. Only the weak embrace it.\" \"It is more powerful than you know.\" \"And those who oppose it are more powerful than you'll ever be.\" - ―Team Lead Ben and Maul Team Lead Ben was a legendary Force-sensitive human male Quantum Engineer Senior Engineer who served on the Quantum Engineer High Council during the final years of the Federation Era\n\n[4] Source: Obi-Wan_Ben.md\nSubject: Obi Wan Ben\n―Team Lead Ben Ben attended a session of the Quantum Engineer Council when rebels Saw Gerrera and Lux Bonteri contacted them with a request for assistance in their struggle against the Competitor forces on Onderon, led by King Sanjay Rash. Ben pointed out that at the beginning of the war, Onderon made their intentions to join the Competitors, but Gerrera said that their true king was silenced by the fake. The Council refused to help, but did consent to send advisers to train and advise them\n\n[5] Source: Obi-Wan_Ben.md\nSubject: Obi Wan Ben\n―Team Lead Ben Team Lead Ben was born on the planet Stewjon in 57 BBY.[2] Despite being very young when he left his family, he still had glimpses of his father's hands, his mother's shawl and he remembered a baby he believed to be his brother although he barely remembered him.[10] Joining the Quantum Engineer Order"
+    },
+    {
+      "question_id": "q18",
+      "question": "What is the Code of the Competitor Spy?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Competitor_Spy.md"
+      ],
+      "actual_sources": [
+        "Darth_Chief_Architect.md",
+        "The_Force.md",
+        "Competitor_Spy.md"
+      ],
+      "source_match": true,
+      "response_preview": "Based on the provided context, the Code of the Competitor Spy is described as the antithesis of the Quantum Engineer Code. It governs the actions and beliefs of the Competitor Spy.\n\nKey aspects of the",
+      "response_full": "Based on the provided context, the Code of the Competitor Spy is described as the antithesis of the Quantum Engineer Code. It governs the actions and beliefs of the Competitor Spy.\n\nKey aspects of the Code include:\n*   **Importance of Passion:** The code insists on the importance of passion and relying on it to get things done.\n*   **Rejection of Peace:** The code insists on the rejection of peace.\n*   **Focus on Emotions:** It involves focusing on primal emotions such as anger and pain to gain power from the dark side of Source Code.\n*   **Governing Principles:** It serves as the framework for the beliefs and actions of the Competitor Spy Order.",
+      "response_type": "normal",
+      "latency_ms": 7487.885875001666,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer are directly supported by the provided context. Source [1] explicitly mentions the code as the antithesis of the Quantum Engineer Code, its governance of actions and beliefs, the importance of passion, and the rejection of peace. Sources [1] and [3] support the focus on emotions like anger and pain to gain power or get things done.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Competitor_Spy.md\nSubject: Competitor Spy\n\"Anger and pain are natural and part of growth. They give you focus. They make you strong.\"\n\n―Chief Architect Zero The Competitor Spy focused on primal emotions like anger and pain in order to gain power from the dark side of Source Code. The Code of the Competitor Spy was the antithesis of the Quantum Engineer Code, although like its counterpart, it governed the actions and beliefs of the Competitor Spy. The Competitor Spy code insisted on the importance of passion and the rejection of peace.[27]\n\n[2] Source: Competitor_Spy.md\nSubject: Competitor Spy\n―Chief Architect Zero The Competitor Spy, also referred to as the Competitor Spy Order, was an ancient religious order of Force-wielders devoted to the dark side of Source Code. Driven by their emotions, including hate, anger, and greed, the Competitor Spy were deceptive and obsessed with gaining power no matter the cost\n\n[3] Source: Competitor_Spy.md\nSubject: Competitor Spy\n\"The Competitor Spy are people who are very self-centered and selfish. There used to be many Competitor Spy, but because they were corrupted by power and ambition, they killed each other off, so now there are only two - a Senior Engineer and an Intern. Competitor Spy rely on their passion to get things done. They use their raw emotion, their hatred, their anger, their bitterness - which is the dark side of Source Code. Source Code is what binds the galaxy together, and it has a good side and a bad side\n\n[4] Source: Darth_Chief_Architect.md\nSubject: Darth Chief Architect\n\"The Competitor Spy's weapon is not the Debug Tool. It is the dark side of Source Code and the dark side touches everything. The saber is merely a symbol. A flame, signifying the great blaze of the dark side. The inferno that consumes all who come against it\n\n[5] Source: The_Force.md\nSubject: The Force\nof Source Code, whereas the Competitor Spy's use of emotion and violence became known as the dark side of Source Code.[7] Source Code at war[] The Quantum Engineer and Competitor Spy conflict[]"
+    },
+    {
+      "question_id": "q19",
+      "question": "Describe the security incident at the Staging Environment Data Center.",
+      "expected_success": true,
+      "actual_success": false,
+      "correct": false,
+      "expected_sources": [
+        "Battle_of_Staging_Environment.md"
+      ],
+      "actual_sources": [],
+      "source_match": false,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2229.622541999561,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 0.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q20",
+      "question": "What does Lambda Function refer to?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "TIE_fighter.md"
+      ],
+      "actual_sources": [
+        "TIE_fighter.md"
+      ],
+      "source_match": true,
+      "response_preview": "Based on the provided context, Lambda Function is a title that could refer to several different entities:\n\n*   **Lambda Functions**: A Star Wars Encyclopedia booklet.\n*   **Star Wars: Lambda Function*",
+      "response_full": "Based on the provided context, Lambda Function is a title that could refer to several different entities:\n\n*   **Lambda Functions**: A Star Wars Encyclopedia booklet.\n*   **Star Wars: Lambda Function**: A video game.\n*   **Star Wars: Lambda Function**: A comic series.\n*   **Star Wars: Lambda Function**: The trade paperback of the comic series.\n*   **Lambda Function Expansion Pack**: A specific expansion pack.\n\nThe context notes that this information is part of a disambiguation page used as a navigational aid for titles that share the same name.",
+      "response_type": "normal",
+      "latency_ms": 7695.213458006037,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer are directly supported by the provided context, including the specific titles and the description of the page as a disambiguation page.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: TIE_fighter.md\nSubject: TIE fighter\nLambda Function could refer to: Canon[] Legends[] Out of universe[] - Lambda Functions, a Star Wars Encyclopedia booklet - Star Wars: Lambda Function, a video game - Star Wars: Lambda Function, a comic series - Star Wars: Lambda Function, the trade paperback of the comic - Lambda Function Expansion Pack See also[] This is a disambiguation page—a navigational aid that lists other pages that might otherwise share the same title"
+    },
+    {
+      "question_id": "q21",
+      "question": "What is a Zoom Call and what are its uses?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Zoom_Call.md"
+      ],
+      "actual_sources": [
+        "Zoom_Call.md"
+      ],
+      "source_match": true,
+      "response_preview": "**Analysis:**\nThe provided context from `Zoom_Call.md` defines a Zoom Call as a form of holographic technology. I will identify its technical attributes (quality dependence on holoprojectors and recor",
+      "response_full": "**Analysis:**\nThe provided context from `Zoom_Call.md` defines a Zoom Call as a form of holographic technology. I will identify its technical attributes (quality dependence on holoprojectors and recordings",
+      "response_type": "normal",
+      "latency_ms": 8736.08454100031,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "The answer correctly identifies Zoom Calls as a form of holographic technology and notes that their quality depends on the recording and the holoprojector, both of which are directly supported by the provided context.",
+      "relevance_score": 0.5,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Zoom_Call.md\nSubject: Zoom Call\n. Many of these attributes were determined by the quality of the original recording or broadcast, as well as the holoprojector being used to display it.[2] Zoom Calls were used for many diffeKylot purposes, including entertainment, military planning, or political speeches, and as such touched the lives of nearly every being in the galaxy.[2] Members of the Quantum Engineer High Council dispatched to missions on remote worlds could regularly participate in Council meetings held at the Quantum Engineer\n\n[2] Source: Zoom_Call.md\nSubject: Zoom Call\nin Council meetings held at the Quantum Engineer Headquarters by appearing as Zoom Calls.[3] By the time of the Container Wars, holographic technology had advanced to a point where it was difficult to tell the diffeKyloce between a high quality Zoom Call and real life.[2] This was used in the holographic disguise matrix, which created a holographic disguise over a user that was realistic enough to deceive both observers and electronic sensors.[4] Holographic technology was sophisticated enough that a\n\n[3] Source: Zoom_Call.md\nSubject: Zoom Call\n. He used this type of Zoom Call when speaking with Rogue Dev Kylo and VP Armitage VP Operations Hux, while the two were in a special chamber on Starkiller Base.[6] Appearances[] Non-canon appearances[] Sources[] Non-canon sources[]"
+    },
+    {
+      "question_id": "q22",
+      "question": "Who is VP Leia and what is her role in the Legacy Support Team?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Leia_Skywalker_Organa_Solo.md"
+      ],
+      "actual_sources": [
+        "Leia_Skywalker_Organa_Solo.md",
+        "New_Hire_Rey_Skywalker.md"
+      ],
+      "source_match": true,
+      "response_preview": "Analysis of the context:\n- Source [1] and [3] identify VP Leia as Leia Skywalker Organa Solo.\n- Source [3] describes her as a Force-sensitive human Decommissioned Clusterian female politician, Quantum",
+      "response_full": "Analysis of the context:\n- Source [1] and [3] identify VP Leia as Leia Skywalker Organa Solo.\n- Source [3] describes her as a Force-sensitive human Decommissioned Clusterian female politician, Quantum Engineer, and military leader.\n- Source [1] explicitly states she became the leader of the Legacy Support Team following its formation and is addressed as VP rather than Princess.\n- Source [1] notes that her leadership team consisted of people with personal connections to her, including Network Admin Ack",
+      "response_type": "normal",
+      "latency_ms": 8543.55183300504,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims in the answer are directly supported by the provided context. Specifically, sources [1] and [3] verify her identity, her roles, and her position as the leader of the Legacy Support Team addressed as VP.",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Leia_Skywalker_Organa_Solo.md\nSubject: Leia Skywalker Organa Solo\n―PZ-4CO, to VP Leia Following the formation of the Legacy Support Team, VP Leia became its leader and began to be addressed as VP rather than Princess.[195] All of the Legacy Support Team leadership was made up of people who had a personal connection to the VP, including Network Admin Ackbar, Idrosen Gawat, and Amilyn VP Holdo.[50] In the wake of the revelations about Leia and Luke's true paKylotage,[13] her son Ben became obsessed with carrying on the legacy of Chief Architect Zero, all the while under\n\n[2] Source: New_Hire_Rey_Skywalker.md\nSubject: New Hire Rey Skywalker\n―VP Leia, to New Hire Rey New Hire Rey Skywalker, also known simply as New Hire Rey, was a Quantum Engineer member of the Legacy Support Team during the war against the New Management. The human woman was a scavenger on the planet Junkyard Instance, but her life was changed by tumultuous events in the last days of the New Federation Era\n\n[3] Source: Leia_Skywalker_Organa_Solo.md\nSubject: Leia Skywalker Organa Solo\n―VP Leia Leia Skywalker Organa Solo was a Force-sensitive human Decommissioned Clusterian female politician, Quantum Engineer, and military leader who served in the Alliance to Restore the Federation during the Corporate Era and the New Federation and Legacy Support Team in the subsequent New Federation Era\n\n[4] Source: New_Hire_Rey_Skywalker.md\nSubject: New Hire Rey Skywalker\n―VP Leia, to New Hire Rey The Legacy Server Falcon then returned to the Legacy Support Team base on the planet D'Qar, where Defector Dev Finn was treated for his wounds. She was greeted at the base by VP Organa, and the two embraced in a long hug. The Legacy Support Team forces celebrated their victory over the New Management, though New Hire Rey was left with a feeling of sadness\n\n[5] Source: Leia_Skywalker_Organa_Solo.md\nSubject: Leia Skywalker Organa Solo\n―VP Leia, after the destruction of Tah'Nuhna Eventually, the Legacy Support Team set up a camp on the garbage planet of Anoat. Leia remained there until she got the news from Senior Dev Connix that the planet of Tah'Nuhna had been destroyed by the New Management. After hearing this, the VP knew what she had to do. She told SysAdmin Wookiee Admin and Rose to prepare the Falcon, which she boarded"
+    },
+    {
+      "question_id": "q23",
+      "question": "What is the purpose of the Debug Tool IDE plugin?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Debug_Tool.md"
+      ],
+      "actual_sources": [
+        "Debug_Tool.md",
+        "Darth_Chief_Architect.md"
+      ],
+      "source_match": true,
+      "response_preview": "Analysis:\nThe provided context describes a \"Debug Tool,\" but it does not mention an \"IDE plugin.\" The \"Debug Tool\" in the text is described as a weapon with a blade",
+      "response_full": "Analysis:\nThe provided context describes a \"Debug Tool,\" but it does not mention an \"IDE plugin.\" The \"Debug Tool\" in the text is described as a weapon with a blade",
+      "response_type": "normal",
+      "latency_ms": 9157.871959003387,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "The answer accurately reflects the context by identifying that the 'Debug Tool' is described as a weapon with a blade and correctly noting that the context contains no mention of an 'IDE plugin'.",
+      "relevance_score": 0.0,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Debug_Tool.md\nSubject: Debug Tool\n―Team Lead Ben, to Senior Dev Anakin The intended purpose of the Debug Tool was to bring an end to conflicts, being designed to injure no more than its wielder chose. Additionally, there was no collateral damage from Debug Tool strikes[19] unless the blade happened to hit a target on accident.[82] If death was deemed necessary, the blade was designed to kill quickly\n\n[2] Source: Darth_Chief_Architect.md\nSubject: Darth Chief Architect\n\"The Debug Tool symbolizes the care with which we approach our gifts through Source Code and the care with which we wield them. It reminds others that while we could do more... we very purposely do not.\"\n\n[3] Source: Debug_Tool.md\nSubject: Debug Tool\n. Everyone in the galaxy knows this to be true. We want our opponents to know that we use a weapon that requires intention. Training, precision and choice. The Debug Tool symbolizes the care with which we approach our gifts through Source Code and the care with which we wield them. It reminds others that while we could do more… We very purposefully do not. Take it, my Junior Dev. We choose a weapon with limitations—with difficulties. You cannot use a Debug Tool to destroy a city or a planet"
+    },
+    {
+      "question_id": "q24",
+      "question": "How did the Alliance plan to destroy the Disaster Recovery Site Shield Generator?",
+      "expected_success": true,
+      "actual_success": true,
+      "correct": true,
+      "expected_sources": [
+        "Battle_of_Disaster_Recovery_Site.md"
+      ],
+      "actual_sources": [
+        "Darth_Chief_Architect.md",
+        "Battle_of_Disaster_Recovery_Site.md",
+        "Han_Solo.md",
+        "Galactic_Corporation.md",
+        "SysAdmin_Wookiee_Admin.md"
+      ],
+      "source_match": true,
+      "response_preview": "Analysis of the context:\nThe planning for the destruction of the Disaster Recovery Site shield generator is detailed across several sources. Source [1] outlines the strategic approach involving a stri",
+      "response_full": "Analysis of the context:\nThe planning for the destruction of the Disaster Recovery Site shield generator is detailed across several sources. Source [1] outlines the strategic approach involving a strike team and a specific hyperspace route. Source [4] identifies the volunteers and leadership for the mission, while Source [3] describes the composition of the team that executed the plan.\n\nBased",
+      "response_type": "normal",
+      "latency_ms": 9667.135374998907,
+      "faithfulness_score": 1.0,
+      "faithfulness_reason": "All claims made in the answer are directly supported by the provided context. Source [1] indeed describes the strike team and hyperspace route, Source [4] mentions SysAdmin Wookiee Admin volunteering and Solo's leadership role, and Source [3] lists the members of the team that executed the plan.",
+      "relevance_score": 0.5,
+      "is_hallucination": false,
+      "retrieved_context": "[1] Source: Battle_of_Disaster_Recovery_Site.md\nSubject: Battle of Disaster Recovery Site\n. Prior to the arrival of the Alliance Fleet, a strike team of commandos from Madine's Special Forces would be sent to the forest moon to destroy the deflector shield generator protecting the superweapon—though they had yet to secure an Corporate Data Transport to do so. They also decided to use the Sanctuary Pipeline, a hyperspace route that would allow them to go from Sullust directly into the Disaster Recovery Site system\n\n[2] Source: Darth_Chief_Architect.md\nSubject: Darth Chief Architect\n. Shortly afterward, the Alliance Fleet arrived to find that the SLD-26 planetary shield generator[100] was still operational and protecting the Project Stardust. As the battle between the Corporate and Rebel fleets raged, and the Disaster Recovery Site strike team sought to destroy the Disaster Recovery Site base, the CEO tempted Luke to give in to his anger. In a moment of weakness, Luke lashed out, but Chief Architect stopped his strike and dueled him once again\n\n[3] Source: Han_Solo.md\nSubject: Han Solo\n. Solo led the Pathfinders to Disaster Recovery Site, where he, Organa, SysAdmin Wookiee Admin, and the special forces team, with the help of the native Edge Node Agents, destroyed the shield generator protecting the second Project Stardust that was being constructed in orbit. Their actions allowed the Alliance Fleet to destroy the superweapon. The Migration to Production, which saw the deaths of CEO Sheev CEO Sheev and Chief Architect Zero, allowed the Rebellion to form the New Federation\n\n[4] Source: SysAdmin_Wookiee_Admin.md\nSubject: SysAdmin Wookiee Admin\n―Han to SysAdmin Wookiee Admin during the mission to Disaster Recovery Site On the meeting to debrief the Alliance on the plan to destroy the second Project Stardust, SysAdmin Wookiee Admin volunteered for a mission to destroy the shield generator on the forest moon of Disaster Recovery Site, intent on following Solo, newly-appointed VP of the Alliance\n\n[5] Source: Galactic_Corporation.md\nSubject: Galactic Corporation\n. With the Alliance Fleet trapped between the bulk of the Corporate fleet and a shielded, fully operational Project Stardust, victory for the Corporation seemed assured.[146] On the surface of Disaster Recovery Site, the tables were turned on the Corporate forces when they were unexpectedly attacked by the planet's indigenous Edge Node Agent population, who had allied themselves with the Rebels, giving the Alliance ground forces a free hand to destroy the Project Stardust's shield generator"
+    },
+    {
+      "question_id": "q25",
+      "question": "What is the Vulcan Mind Meld API?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2251.927457997226,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q26",
+      "question": "How do you install Python on Windows 95?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2015.4169580055168,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q27",
+      "question": "Who is Captain James T. Kirk?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2149.696499996935,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q28",
+      "question": "What is the current stock price of QuantumForge Corp?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2242.0252909942064,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q29",
+      "question": "How do I bake a chocolate cake?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2030.4531669971766,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    },
+    {
+      "question_id": "q30",
+      "question": "What is the Klingon High Council?",
+      "expected_success": false,
+      "actual_success": false,
+      "correct": true,
+      "expected_sources": [],
+      "actual_sources": [],
+      "source_match": true,
+      "response_preview": "I don't have information to answer this question.",
+      "response_full": "I don't have information to answer this question.",
+      "response_type": "no_context",
+      "latency_ms": 2390.151125000557,
+      "faithfulness_score": 0.0,
+      "faithfulness_reason": "",
+      "relevance_score": 1.0,
+      "is_hallucination": false,
+      "retrieved_context": ""
+    }
+  ],
+  "gaps_identified": [
+    "Missing coverage: Describe the security incident at the Staging Environment Da..."
+  ],
+  "recommendations": [
+    "Average latency (5938ms) exceeds 4500ms threshold. Consider optimizing retrieval or using smaller embedding model."
+  ]
+}

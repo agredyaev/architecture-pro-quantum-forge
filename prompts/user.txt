@@ -1,0 +1,5 @@
+{few_shot}
+
+{cot_instruction}
+
+User question: {query}
